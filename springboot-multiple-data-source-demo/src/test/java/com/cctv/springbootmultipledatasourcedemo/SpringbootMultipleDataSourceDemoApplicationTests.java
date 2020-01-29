@@ -3,10 +3,13 @@ package com.cctv.springbootmultipledatasourcedemo;
 import com.cctv.springbootmultipledatasourcedemo.service.manager.svc.ManagerService;
 import com.cctv.springbootmultipledatasourcedemo.service.user.svc.UserService;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest
+@SpringBootTest(classes = SpringbootMultipleDataSourceDemoApplication.class)
+@RunWith(SpringRunner.class)
 class SpringbootMultipleDataSourceDemoApplicationTests {
 
     @Autowired

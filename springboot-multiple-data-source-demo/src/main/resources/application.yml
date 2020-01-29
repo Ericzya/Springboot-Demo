@@ -91,7 +91,5 @@ spring:
       use-global-data-source-stat: true
 
 
-
-
 mybatis:
   mapper-locations: classpath:persistent/*/pl/

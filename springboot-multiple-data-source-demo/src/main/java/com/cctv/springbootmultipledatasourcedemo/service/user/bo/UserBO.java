@@ -18,7 +18,7 @@ public class UserBO {
     /**
      * 用户性别
      */
-    private boolean userSexuality;
+    private String userSexuality;
     /**
      * 用户账号密码
      */
@@ -31,6 +31,18 @@ public class UserBO {
      * 用户生日
      */
     private Date userBirthday;
+
+    @Override
+    public String toString() {
+        return "UserBO{" +
+                "userAccount='" + userAccount + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userSexuality=" + userSexuality +
+                ", accountPassword='" + accountPassword + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userBirthday=" + userBirthday +
+                '}';
+    }
 
     public String getUserAccount() {
         return userAccount;
@@ -48,11 +60,11 @@ public class UserBO {
         this.userName = userName;
     }
 
-    public boolean isUserSexuality() {
+    public String getUserSexuality() {
         return userSexuality;
     }
 
-    public void setUserSexuality(boolean userSexuality) {
+    public void setUserSexuality(String userSexuality) {
         this.userSexuality = userSexuality;
     }
 

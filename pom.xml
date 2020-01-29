@@ -18,6 +18,7 @@
 
     <modules>
         <module>springboot-multiple-data-source-demo</module>
+        <module>springboot-springsecurity-demo</module>
     </modules>
 
     <properties>
