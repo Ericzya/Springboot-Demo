@@ -10,4 +10,5 @@ public class VisitorUtil {
     public VisitorBO convertVisitorVOToBO(VisitorVO visitorVO) {
         return new VisitorBO(visitorVO.getInputAccount(), visitorVO.getInputPassword());
     }
+
 }

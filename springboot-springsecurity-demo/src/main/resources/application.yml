@@ -10,13 +10,16 @@ spring:
       suffix: .html
     static-path-pattern: /static/**
   resources:
-    static-locations: /static,classpath:/resources
+    static-locations: classpath:/static
   #  security:
 #    user:
 #      name: eric
 #      password: 112233
   thymeleaf:
     cache: false
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     manager:

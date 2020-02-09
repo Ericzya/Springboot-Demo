@@ -25,11 +25,12 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("account") String managerAccount, @RequestParam("password") String inputPassword) {
-        if (managerService.loginCheck(managerAccount, inputPassword)) {
-            return "";
+    public String login(@ModelAttribute("visitor")VisitorVO visitorVO) {
+        //TODO 区分登陆用户为管理员还是用户
+        if (managerService.loginCheck(visitorVO.getInputAccount(), visitorVO.getInputPassword())) {
+            return "index/dashboard";
         } else {
-            return "";
+            return "index/404";
         }
     }
 }
