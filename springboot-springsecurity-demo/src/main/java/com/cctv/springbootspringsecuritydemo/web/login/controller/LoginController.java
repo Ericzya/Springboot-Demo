@@ -1,10 +1,12 @@
 package com.cctv.springbootspringsecuritydemo.web.login.controller;
 
-import com.cctv.springbootspringsecuritydemo.service.manager.svc.ManagerService;
+import com.cctv.springbootspringsecuritydemo.service.visitor.svc.VisitorService;
 import com.cctv.springbootspringsecuritydemo.web.login.vo.VisitorVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * @Author: Eric
@@ -12,23 +14,22 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 public class LoginController {
-    private ManagerService managerService;
+    private VisitorService visitorService;
 
     @Autowired
-    public LoginController(ManagerService managerService) {
-        this.managerService = managerService;
+    public LoginController(VisitorService visitorService) {
+        this.visitorService = visitorService;
     }
 
     @GetMapping("/login")
-    public String getLoginPage(@ModelAttribute("visitor")VisitorVO visitorVO) {
+    public String getLoginPage(@ModelAttribute("visitor") VisitorVO visitorVO) {
         return "login/login";
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute("visitor")VisitorVO visitorVO) {
-        //TODO 区分登陆用户为管理员还是用户
-        if (managerService.loginCheck(visitorVO.getInputAccount(), visitorVO.getInputPassword())) {
-            return "index/dashboard";
+    public String login(@ModelAttribute("visitor") VisitorVO visitorVO) {
+        if (visitorService.loginCheck(visitorVO.getInputAccount(), visitorVO.getInputPassword())) {
+            return "index/index";
         } else {
             return "index/404";
         }

@@ -10,7 +10,7 @@ public class User {
     /**
      * 用户账号
      */
-    private String userAccount;
+    private String userId;
     /**
      * 用户名称
      */
@@ -32,12 +32,12 @@ public class User {
      */
     private Date userBirthday;
 
-    public String getUserAccount() {
-        return userAccount;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserAccount(String userAccount) {
-        this.userAccount = userAccount;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {

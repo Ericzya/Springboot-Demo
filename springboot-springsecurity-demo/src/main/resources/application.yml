@@ -4,17 +4,17 @@ server:
     context-path: /mcool
 
 spring:
+#  security:
+#    user:
+#      name: eric
+#      password: 112233
   mvc:
     view:
       prefix: /
       suffix: .html
     static-path-pattern: /static/**
   resources:
-    static-locations: classpath:/static
-  #  security:
-#    user:
-#      name: eric
-#      password: 112233
+    static-locations: classpath:/static,classpath:/resources
   thymeleaf:
     cache: false
     encoding: UTF-8
@@ -108,9 +108,6 @@ spring:
     druid:
       #合并多个DruidDataSource的监控数据
       use-global-data-source-stat: true
-
-
-
 
 
 mybatis:

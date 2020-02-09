@@ -19,8 +19,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean loginCheck(String managerEmail, String inputPassword) {
-        User targetUser = userDAO.getUserByEmail(managerEmail);
-        return targetUser != null && targetUser.getAccountPassword().equals(inputPassword);
+    public User getUserByEmail(String userEmail) {
+        return userDAO.getUserByEmail(userEmail);
     }
 }

@@ -1,16 +1,19 @@
 package com.cctv.springbootspringsecuritydemo.service.user.svc;
 
+import com.cctv.springbootspringsecuritydemo.persistent.user.po.User;
+
 /**
  * @Author: Eric
  * @Date: 2020/1/28 17:12
  */
 public interface UserService {
     /**
-     * login check
+     * 通过Email获取用户
      *
-     * @param managerEmail  管理员邮箱
-     * @param inputPassword 管理员账号密码
-     * @return boolean true-登陆成功，false-登陆失败
+     * @param userEmail  用户邮箱
+     * @return User 对应用户
      */
-    boolean loginCheck(String managerEmail, String inputPassword);
+    User getUserByEmail(String userEmail);
+
+
 }
