@@ -31,10 +31,10 @@ public class MybatisManagerConfig {
     @Bean(name = "managerSqlSessionFactory")
     @Primary
     public SqlSessionFactory customSqlSessionFactory(@Qualifier("managerDataSource") DataSource dataSource) throws Exception {
-        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dataSource);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/manager/*.xml"));
-        return bean.getObject();
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(dataSource);
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/manager/*.xml"));
+        return sqlSessionFactoryBean.getObject();
     }
 
     @Bean(name = "managerTransactionManager")

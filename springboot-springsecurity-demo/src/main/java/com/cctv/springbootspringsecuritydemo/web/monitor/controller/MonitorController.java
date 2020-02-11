@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MonitorController {
     @GetMapping("/monitor")
-    public String getMonitorPage(){
+    public String getMonitorPage() {
         return "/monitor/basic-table";
     }
 }
