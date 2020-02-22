@@ -1,22 +1,19 @@
-This is a springboot multiple data source demo.
+This is a springboot demo with multiple modules.
 
 So...
 
-If you need this demo,find file folder "sqlfile" and run sql statements in Navicat or whatever(must support database 'mysql'),change user/password settings and so on in application.yml.
+If you need this demo,find file folder "doc-sqlfile" and run sql statements in Navicat or whatever(must support database 'mysql'),change user/password settings or something else in each application-dev.yml,and run the modules inside.
 
-Maybe you will meet few troubles,but i believe they would not stop you.
+Maybe you will meet few troubles,but I believe they would not stop you.
 
-And...
-
-Congratulations!We have done!
 
 
 
 PS:
 
-It's pretty late now.My country is suffering from a virus attack.I hope we would survive from this new virus.And...
+It's pretty late now but I still can't sleep.Cause my country is suffering from SARS-CoV now and many people died.We are segregating ourselves now.Things seem to be getting worse day by day.I do hope my friends would survive from this new virus.
 
-Good night,earth!
+And I hope I can say goodbye to earth everyday.
 
 
                                                                                                     Eric Zhang
