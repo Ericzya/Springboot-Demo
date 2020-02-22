@@ -1,7 +1,7 @@
 springboot-demo
 --springboot-multiple-data-source-different-package
-    springboot demo with multiple datasources(switch with aspect)
+    a springboot demo with multiple datasources(switch with aspect)
 --springboot-multiple-data-source-different-package
-    springboot demo with multiple datasources(switch with mybatis)
+    a springboot demo with multiple datasources(switch with mybatis)
 --springboot-spring-security-demo
-    springboot demo with spring security
+    a springboot demo with spring security
