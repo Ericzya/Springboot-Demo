@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot-multiple-data-source-different-package</name>
     <description>Multiple Datasource Demo project for Spring Boot</description>
+    <packaging>pom</packaging>
 
     <dependencies>
         <!-- spring web 依赖 -->
