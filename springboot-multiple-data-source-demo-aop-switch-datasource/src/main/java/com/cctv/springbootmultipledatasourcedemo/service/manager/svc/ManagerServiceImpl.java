@@ -1,5 +1,7 @@
 package com.cctv.springbootmultipledatasourcedemo.service.manager.svc;
 
+import com.cctv.springbootmultipledatasourcedemo.config.aop.DataSourceAnnotation;
+import com.cctv.springbootmultipledatasourcedemo.config.enums.DataSourceEnum;
 import com.cctv.springbootmultipledatasourcedemo.persistent.manager.pl.ManagerDAO;
 import com.cctv.springbootmultipledatasourcedemo.persistent.manager.po.Manager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
+    @DataSourceAnnotation(DataSourceEnum.DB_Manager)
     public boolean loginCheck(String managerEmail, String inputPassword) {
         Manager targetManager = managerDAO.getManagerByEmail(managerEmail);
         if (targetManager != null && targetManager.getAccountPassword().equals(inputPassword)) {

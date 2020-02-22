@@ -1,24 +1,25 @@
 package com.cctv.springbootmultipledatasourcedemo.config.aop;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import com.cctv.springbootmultipledatasourcedemo.config.enums.DataSourceEnum;
+
+import java.lang.annotation.*;
 
 /**
  * @Author: Eric
  * @Date: 2020/2/13 1:10
  */
+
+@Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
-public @interface DataSourceKey {
+public @interface DataSourceAnnotation {
     /**
      * 配置数据源键值
      * <p>
      * 默认：dataSource.
      * </p>
      *
-     * @return 键值
+     * @return 枚举
      */
-    String dataSourceKey() default "dataSource";
+    DataSourceEnum value() default DataSourceEnum.DB_Manager;
 }

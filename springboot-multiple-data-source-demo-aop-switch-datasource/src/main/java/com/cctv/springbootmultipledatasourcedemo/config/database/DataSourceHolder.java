@@ -1,13 +1,12 @@
 package com.cctv.springbootmultipledatasourcedemo.config.database;
 
 import com.cctv.springbootmultipledatasourcedemo.config.enums.DataSourceEnum;
-import org.springframework.util.StringUtils;
 
 /**
  * @Author: Eric
  * @Date: 2020/2/13 0:56
  */
-public abstract class AbstractDBContextHolder {
+public class DataSourceHolder {
     /**
      * 数据源类型管理
      * <p>
@@ -17,7 +16,8 @@ public abstract class AbstractDBContextHolder {
      *
      * @see ThreadLocal
      */
-    private static ThreadLocal<String> contextHolder = new ThreadLocal<String>();
+    private static final ThreadLocal<DataSourceEnum> contextHolder = new ThreadLocal<>();
+    public static final DataSourceEnum DEFAULT_DATA_SOURCE = DataSourceEnum.DB_Manager;
 
     /**
      * 获取数据源
@@ -27,20 +27,23 @@ public abstract class AbstractDBContextHolder {
      *
      * @return 数据源键值
      */
-    public static String getDataSource() {
-        String dataSource = contextHolder.get();
-        if (StringUtils.isEmpty(dataSource)) {
-            dataSource = DataSourceEnum.DB_Manager.getDataSourceKey();
-        }
-        return dataSource;
+    public static DataSourceEnum getDataSource() {
+        return contextHolder.get();
+    }
+
+    /**
+     * 设置数据源
+     */
+    public static void setDefaultDataSource() {
+        contextHolder.set(DEFAULT_DATA_SOURCE);
     }
 
     /**
      * 设置数据源
      *
-     * @param dataSourceKey 数据源键值
+     * @param dataSourceEnum 数据源键值
      */
-    public static void setDataSource(String dataSourceKey) {
-        contextHolder.set(dataSourceKey);
+    public static void setDataSource(DataSourceEnum dataSourceEnum) {
+        contextHolder.set(dataSourceEnum);
     }
 }
