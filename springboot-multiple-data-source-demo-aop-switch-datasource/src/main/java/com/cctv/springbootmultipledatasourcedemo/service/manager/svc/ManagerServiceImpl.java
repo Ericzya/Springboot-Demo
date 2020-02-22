@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ManagerServiceImpl implements ManagerService {
-    final ManagerDAO managerDAO;
+    private ManagerDAO managerDAO;
 
     @Autowired(required = false)
     public ManagerServiceImpl(ManagerDAO managerDAO) {
@@ -21,7 +21,6 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    @DataSourceAnnotation(DataSourceEnum.DB_Manager)
     public boolean loginCheck(String managerEmail, String inputPassword) {
         Manager targetManager = managerDAO.getManagerByEmail(managerEmail);
         if (targetManager != null && targetManager.getAccountPassword().equals(inputPassword)) {

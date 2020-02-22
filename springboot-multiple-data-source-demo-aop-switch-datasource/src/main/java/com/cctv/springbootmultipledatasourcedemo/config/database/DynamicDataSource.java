@@ -1,8 +1,6 @@
 package com.cctv.springbootmultipledatasourcedemo.config.database;
 
 import com.cctv.springbootmultipledatasourcedemo.config.enums.DataSourceEnum;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
@@ -11,12 +9,10 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
  */
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
-    private final Logger logger = LoggerFactory.getLogger(DynamicDataSource.class);
-
     @Override
     protected Object determineCurrentLookupKey() {
+        //获取并设置数据源
         DataSourceEnum dataSourceEnum = DataSourceHolder.getDataSource();
-        logger.info("当前使用数据源为：{}", dataSourceEnum);
         return dataSourceEnum;
     }
 }

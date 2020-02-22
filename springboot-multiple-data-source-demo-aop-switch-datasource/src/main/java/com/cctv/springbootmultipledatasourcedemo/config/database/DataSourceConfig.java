@@ -31,24 +31,12 @@ public class DataSourceConfig {
     @Bean(name = "dataSourceManager")
     @ConfigurationProperties(prefix = "spring.datasource.manager")
     public DataSource setDataSourceMaster() {
-//        ManagerConfig managerConfig=new ManagerConfig();
-//        DruidDataSource druidDataSourceMaster = new DruidDataSource();
-//        druidDataSourceMaster.setUrl(managerConfig.getUrl());
-//        druidDataSourceMaster.setUsername(managerConfig.getUsername());
-//        druidDataSourceMaster.setPassword(managerConfig.getPassword());
-//        druidDataSourceMaster.setDriverClassName(managerConfig.getDriverClassName());
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "dataSourceUser")
     @ConfigurationProperties(prefix = "spring.datasource.user")
     public DataSource setDatasourceUser() {
-//        DruidDataSource druidDataSourceUser = new DruidDataSource();
-//        UserConfig userConfig=new UserConfig();
-//        druidDataSourceUser.setUrl(userConfig.getUrl());
-//        druidDataSourceUser.setUsername(userConfig.getUsername());
-//        druidDataSourceUser.setPassword(userConfig.getPassword());
-//        druidDataSourceUser.setDriverClassName(userConfig.getDriverClassName());
         return DataSourceBuilder.create().build();
     }
 

@@ -7,6 +7,8 @@ import com.cctv.springbootmultipledatasourcedemo.config.enums.DataSourceEnum;
  * @Date: 2020/2/13 0:56
  */
 public class DataSourceHolder {
+    public static final DataSourceEnum DEFAULT_DATA_SOURCE = DataSourceEnum.DB_Manager;
+
     /**
      * 数据源类型管理
      * <p>
@@ -16,8 +18,12 @@ public class DataSourceHolder {
      *
      * @see ThreadLocal
      */
-    private static final ThreadLocal<DataSourceEnum> contextHolder = new ThreadLocal<>();
-    public static final DataSourceEnum DEFAULT_DATA_SOURCE = DataSourceEnum.DB_Manager;
+    private static final ThreadLocal<DataSourceEnum> contextHolder = new ThreadLocal<DataSourceEnum>() {
+        @Override
+        protected DataSourceEnum initialValue() {
+            return DEFAULT_DATA_SOURCE;
+        }
+    };
 
     /**
      * 获取数据源
@@ -32,10 +38,17 @@ public class DataSourceHolder {
     }
 
     /**
-     * 设置数据源
+     * 设置默认数据源
      */
     public static void setDefaultDataSource() {
         contextHolder.set(DEFAULT_DATA_SOURCE);
+    }
+
+    /**
+     * 获取默认数据源
+     */
+    public static DataSourceEnum getDefaultDataSource() {
+        return DEFAULT_DATA_SOURCE;
     }
 
     /**
