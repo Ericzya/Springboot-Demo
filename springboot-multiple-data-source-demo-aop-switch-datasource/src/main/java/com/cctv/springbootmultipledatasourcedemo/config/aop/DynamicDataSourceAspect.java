@@ -20,16 +20,16 @@ public class DynamicDataSourceAspect {
 
     @Before("@annotation(dataSourceAnnotation)")
     public void before(JoinPoint point, DataSourceAnnotation dataSourceAnnotation) {
-        Class<?> clazz = point.getTarget().getClass();
-        MethodSignature signature = (MethodSignature) point.getSignature();
+//        Class<?> clazz = point.getTarget().getClass();
+//        MethodSignature signature = (MethodSignature) point.getSignature();
         try {
-            Method method = clazz.getMethod(signature.getName(), signature.getParameterTypes());
-            if (method.isAnnotationPresent(DataSourceAnnotation.class)) {
-                // 根据注解设置数据源
-                DataSourceAnnotation annotation = method.getAnnotation(DataSourceAnnotation.class);
-                DataSourceHolder.setDataSource(annotation.value());
-                logger.debug("设置"+annotation.value()+"数据源");
-            }
+//            Method method = clazz.getMethod(signature.getName(), signature.getParameterTypes());
+//            if (method.isAnnotationPresent(DataSourceAnnotation.class)) {
+            // 根据注解设置数据源
+//                DataSourceAnnotation annotation = method.getAnnotation(DataSourceAnnotation.class);
+            DataSourceHolder.setDataSource(dataSourceAnnotation.value());
+            logger.info("设置" + dataSourceAnnotation.value() + "数据源");
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }

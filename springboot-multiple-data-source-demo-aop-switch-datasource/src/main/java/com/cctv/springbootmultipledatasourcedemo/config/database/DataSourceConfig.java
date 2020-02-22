@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -27,43 +29,44 @@ import java.util.Map;
 @MapperScan(basePackages = "com.cctv.springbootmultipledatasourcedemo.persistent.*.pl")
 public class DataSourceConfig {
     @Bean(name = "dataSourceManager")
-    @Primary
-    public DataSource dataSourceMaster() throws Exception {
-        ManagerConfig managerConfig=new ManagerConfig();
-        DruidDataSource druidDataSourceMaster = new DruidDataSource();
-        druidDataSourceMaster.setUrl(managerConfig.getUrl());
-        druidDataSourceMaster.setUsername(managerConfig.getUsername());
-        druidDataSourceMaster.setPassword(managerConfig.getPassword());
-        druidDataSourceMaster.setDriverClassName(managerConfig.getDriverClassName());
-        return druidDataSourceMaster;
+    @ConfigurationProperties(prefix = "spring.datasource.manager")
+    public DataSource setDataSourceMaster() {
+//        ManagerConfig managerConfig=new ManagerConfig();
+//        DruidDataSource druidDataSourceMaster = new DruidDataSource();
+//        druidDataSourceMaster.setUrl(managerConfig.getUrl());
+//        druidDataSourceMaster.setUsername(managerConfig.getUsername());
+//        druidDataSourceMaster.setPassword(managerConfig.getPassword());
+//        druidDataSourceMaster.setDriverClassName(managerConfig.getDriverClassName());
+        return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "dataSourceUser")
-    public DataSource dataSourceSlave() throws Exception {
-        DruidDataSource druidDataSourceUser = new DruidDataSource();
-        UserConfig userConfig=new UserConfig();
-        druidDataSourceUser.setUrl(userConfig.getUrl());
-        druidDataSourceUser.setUsername(userConfig.getUsername());
-        druidDataSourceUser.setPassword(userConfig.getPassword());
-        druidDataSourceUser.setDriverClassName(userConfig.getDriverClassName());
-        return druidDataSourceUser;
+    @ConfigurationProperties(prefix = "spring.datasource.user")
+    public DataSource setDatasourceUser() {
+//        DruidDataSource druidDataSourceUser = new DruidDataSource();
+//        UserConfig userConfig=new UserConfig();
+//        druidDataSourceUser.setUrl(userConfig.getUrl());
+//        druidDataSourceUser.setUsername(userConfig.getUsername());
+//        druidDataSourceUser.setPassword(userConfig.getPassword());
+//        druidDataSourceUser.setDriverClassName(userConfig.getDriverClassName());
+        return DataSourceBuilder.create().build();
     }
 
     /**
      * 动态数据源，配置需要使用到的多个数据源
      *
-     * @param managerSource
-     * @param userSource
-     * @return
+     * @return AbstractRoutingDataSource的继承类DynamicDataSource
      */
-    @Bean
-    public DynamicDataSource dynamicDataSource(@Qualifier("dataSourceManager") DataSource managerSource, @Qualifier("dataSourceUser") DataSource userSource) {
+    @Bean(name = "dynamicDataSource")
+    public DynamicDataSource dynamicDataSource() {
         Map<Object, Object> targetDataSources = new HashMap<>(2);
-        // 添加主库源
-        targetDataSources.put(DataSourceEnum.DB_Manager, managerSource);
-        targetDataSources.put(DataSourceEnum.DB_User, userSource);
+        targetDataSources.put(DataSourceEnum.DB_Manager, setDataSourceMaster());
+        targetDataSources.put(DataSourceEnum.DB_User, setDatasourceUser());
+
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
-        dynamicDataSource.setDefaultTargetDataSource(managerSource);
+        //设置默认数据源
+        dynamicDataSource.setDefaultTargetDataSource(setDataSourceMaster());
+        //添加多个数据源
         dynamicDataSource.setTargetDataSources(targetDataSources);
         return dynamicDataSource;
     }
@@ -74,10 +77,10 @@ public class DataSourceConfig {
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory(DynamicDataSource dynamicDataSource) throws Exception {
+    public SqlSessionFactory setSqlSession(DynamicDataSource dynamicDataSource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dynamicDataSource);
-        sessionFactory.setMapperLocations(((ResourcePatternResolver) new PathMatchingResourcePatternResolver())
+        sessionFactory.setMapperLocations((new PathMatchingResourcePatternResolver())
                 .getResources("classpath*:/mapper/*/*DAO.xml"));
         return sessionFactory.getObject();
     }

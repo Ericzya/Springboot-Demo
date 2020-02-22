@@ -2,7 +2,7 @@ spring:
   datasource:
     manager:
       type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://localhost:3306/mcool-manager?allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+      jdbc-url: jdbc:mysql://localhost:3306/mcool-manager?allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
       username: root
       password: 112233
       driver-class-name: com.mysql.cj.jdbc.Driver
