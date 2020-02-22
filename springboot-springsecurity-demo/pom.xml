@@ -11,7 +11,7 @@
     <artifactId>springboot-springsecurity-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot-spring-security-demo</name>
-    <description>Demo spring security project for Spring Boot</description>
+    <description>Spring security demo project for Spring Boot</description>
 
 
     <dependencies>
