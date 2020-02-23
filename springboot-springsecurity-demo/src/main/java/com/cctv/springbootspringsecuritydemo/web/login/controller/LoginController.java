@@ -26,12 +26,12 @@ public class LoginController {
         return "login/login";
     }
 
-    @PostMapping("/login")
-    public String login(@ModelAttribute("visitor") VisitorVO visitorVO) {
-        if (visitorService.loginCheck(visitorVO.getInputAccount(), visitorVO.getInputPassword())) {
-            return "index/index";
-        } else {
-            return "index/404";
-        }
-    }
+//    @PostMapping("/login")
+//    public String login(@ModelAttribute("visitor") VisitorVO visitorVO) {
+//        if (visitorService.loginCheck(visitorVO.getInputAccount(), visitorVO.getInputPassword())) {
+//            return "index/index";
+//        } else {
+//            return "index/404";
+//        }
+//    }
 }

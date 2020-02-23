@@ -28,12 +28,12 @@ public class LogAspect {
     public void setControllerLog() {
     }
 
-    @Pointcut("execution(public * com.cctv.springbootspringsecuritydemo.service..*.*(..))")
+    @Pointcut("execution(public * com.cctv.springbootspringsecuritydemo.service.*.svc.*.*(..))")
     public void setServiceLog() {
     }
 
     @Before("setControllerLog()")
-    public void logBeforeController(JoinPoint joinPoint) {
+    public void printControllerLog(JoinPoint joinPoint) {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
 
@@ -45,7 +45,15 @@ public class LogAspect {
         logger.info("THE ARGS OF THE CONTROLLER : " + Arrays.toString(joinPoint.getArgs()));
         logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
         logger.info("---------------------------Controller Log End---------------------------");
+    }
 
+    @Before("setServiceLog()")
+    public void printServiceLog(JoinPoint joinPoint) {
+        // 记录接口参数,方法等
+        logger.info("---------------------------Service Log Begin---------------------------");
+        logger.info("THE ARGS OF THE SERVICE : " + Arrays.toString(joinPoint.getArgs()));
+        logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        logger.info("---------------------------Service Log End---------------------------");
     }
 
 }
