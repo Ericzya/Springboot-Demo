@@ -11,11 +11,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ManagerServiceImpl implements ManagerService {
-    final ManagerDAO managerDAO;
+    private ManagerDAO managerDAO;
 
     @Autowired(required = false)
     public ManagerServiceImpl(ManagerDAO managerDAO) {
         this.managerDAO = managerDAO;
+    }
+
+    public ManagerServiceImpl() {
     }
 
     @Override

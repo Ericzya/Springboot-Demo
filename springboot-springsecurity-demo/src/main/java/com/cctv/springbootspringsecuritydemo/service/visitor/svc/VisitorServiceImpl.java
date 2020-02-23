@@ -15,13 +15,16 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class VisitorServiceImpl implements VisitorService {
-    final ManagerDAO managerDAO;
-    final UserDAO userDAO;
+    private ManagerDAO managerDAO;
+    private UserDAO userDAO;
 
     @Autowired(required = false)
     public VisitorServiceImpl(ManagerDAO managerDAO, UserDAO userDAO) {
         this.managerDAO = managerDAO;
         this.userDAO = userDAO;
+    }
+
+    public VisitorServiceImpl() {
     }
 
     @Override
