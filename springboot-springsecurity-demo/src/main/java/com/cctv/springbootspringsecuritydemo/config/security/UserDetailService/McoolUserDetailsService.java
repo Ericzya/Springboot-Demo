@@ -1,4 +1,4 @@
-package com.cctv.springbootspringsecuritydemo.config.security;
+package com.cctv.springbootspringsecuritydemo.config.security.UserDetailService;
 
 import com.cctv.springbootspringsecuritydemo.service.visitor.bo.VisitorBO;
 import com.cctv.springbootspringsecuritydemo.service.visitor.svc.VisitorService;
