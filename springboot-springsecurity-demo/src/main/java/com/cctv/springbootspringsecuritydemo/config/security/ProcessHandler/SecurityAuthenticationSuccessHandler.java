@@ -52,10 +52,10 @@ public class SecurityAuthenticationSuccessHandler extends SavedRequestAwareAuthe
         }
 
         if (StringUtils.isEmpty(url)) {
-            url = "/index";
+            url = "/mcool/index";
         }
 
-        getRedirectStrategy().sendRedirect(request, response, url);
+        response.sendRedirect(url);
 
         super.onAuthenticationSuccess(request, response, authentication);
     }
