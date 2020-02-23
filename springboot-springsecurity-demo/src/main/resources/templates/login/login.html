@@ -25,41 +25,46 @@
     <link th:href="@{/static/css/style-responsive.css}" type="text/css" rel="stylesheet" />
 </head>
 
-  <body class="login-img-body">
+<body class="login-img-body">
 
-    <div class="container">
+<div class="container">
 
-            <form class="login-form" id="employee" th:action="@{/login}" th:object="${visitor}" method="post">
-            <div class="login-window">
-                <div class="login-wrap">
-                    <p class="login-img"><img th:src="@{/static/img/login/LoginModalBackground.png}"/></p>
-                    <!--<p class="login-img"><i class="icon_lock_alt"></i></p>-->
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="icon_profile"></i></span>
-                        <input type="text" class="form-control" th:field="*{inputAccount}" placeholder="inputAccount" autofocus="autofocus"/>
-                        <div th:if="${#fields.hasErrors('inputAccount')}"
-                             th:errors="${visitor.inputAccount}" class="alert alert-danger">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                        <input type="password" class="form-control" th:field="*{inputPassword}" placeholder="Password"/>
-                        <div th:if="${#fields.hasErrors('inputPassword')}"
-                             th:errors="${visitor.inputPassword}" class="alert alert-danger">
-                        </div>
-                    </div>
-                    <label class="checkbox">
-                        <input type="checkbox" class="remember-me" value="remember-me">记住密码</input>
-                        <span class="pull-right"> <a href="#">忘了密码</a></span>
-                    </label>
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">登陆</button>
-                    <button class="btn btn-primary btn-lg btn-block" type="button">注册</button>
+    <form class="login-form" th:action="@{/login}" method="post">
+        <div class="login-window">
+            <div class="login-wrap">
+                <p class="login-img"><img th:src="@{/static/img/login/LoginModalBackground.png}"/></p>
+                <!--<p class="login-img"><i class="icon_lock_alt"></i></p>-->
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="icon_profile"></i></span>
+                    <input type="text" class="form-control" name="username" placeholder="EmailAddress" autofocus="autofocus"/>
                 </div>
+                <!--                    <div th:if="${#fields.hasErrors('inputAccount')}"-->
+                <!--                         th:errors="${visitor.inputAccount}" class="alert alert-danger">-->
+                <!--                    </div>-->
+                <!--                    <div th:if="${param.error}" th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}" class="alert alert-danger">-->
+                <!--                        用户邮箱或者密码错误-->
+                <!--                    </div>-->
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                    <input type="password" class="form-control" name="password" placeholder="Password"/>
+                </div>
+                <!--                    <div th:if="${#fields.hasErrors('inputPassword')}"-->
+                <!--                         th:errors="${visitor.inputPassword}" class="alert alert-danger">-->
+                <!--                    </div>-->
+                <div th:if="${param.error}" th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}" class="alert alert-danger">
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" class="remember-me" value="remember-me">记住密码</input>
+                    <span class="pull-right"> <a href="#">忘了密码</a></span>
+                </label>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">登陆</button>
+                <button class="btn btn-primary btn-lg btn-block" type="button">注册</button>
             </div>
-      </form>
+        </div>
+    </form>
 
-    </div>
+</div>
 
 
-  </body>
+</body>
 </html>
