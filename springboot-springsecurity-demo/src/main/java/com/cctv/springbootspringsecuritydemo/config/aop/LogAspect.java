@@ -33,17 +33,20 @@ public class LogAspect {
 
     @Before("setControllerLog()")
     public void printControllerLog(JoinPoint joinPoint) {
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
-
-        // 记录请求URL,Get/Post,IP,参数,方法等
         logger.info("---------------------------Controller Log Begin---------------------------");
-        logger.info("URL : " + request.getRequestURL().toString());
-        logger.info("HTTP_METHOD : " + request.getMethod());
-        logger.info("IP : " + request.getRemoteAddr());
-        logger.info("THE ARGS OF THE CONTROLLER : " + Arrays.toString(joinPoint.getArgs()));
-        logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        logger.info("---------------------------Controller Log End---------------------------");
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        if (requestAttributes == null) {
+            logger.error("RequestAttributes为空！");
+        } else {
+            HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
+            // 记录请求URL,Get/Post,IP,参数,方法等
+            logger.info("URL : " + request.getRequestURL().toString());
+            logger.info("HTTP_METHOD : " + request.getMethod());
+            logger.info("IP : " + request.getRemoteAddr());
+            logger.info("THE ARGS OF THE CONTROLLER : " + Arrays.toString(joinPoint.getArgs()));
+            logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+            logger.info("---------------------------Controller Log End---------------------------");
+        }
     }
 
     @Before("setServiceLog()")
