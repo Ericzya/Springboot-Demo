@@ -11,7 +11,7 @@ Maybe you will meet few troubles,but I believe they would not stop you.
 
 PS:
 
-It's pretty late now but I still can't sleep.Cause my country is suffering from SARS-CoV now and many people died.We are segregating ourselves now.Things seem to be getting worse day by day.I do hope my friends would survive from this new virus.
+It's pretty late now but I still can't sleep.Cause my country is suffering from SARS-CoV and many people died.We are segregating ourselves now.Things seem to be getting worse day by day.I do hope my friends would survive from this new virus.
 
 And I hope I can say goodbye to earth everyday.
 
