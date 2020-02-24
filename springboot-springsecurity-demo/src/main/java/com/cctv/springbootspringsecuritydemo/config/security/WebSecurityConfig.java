@@ -1,7 +1,7 @@
 package com.cctv.springbootspringsecuritydemo.config.security;
 
 import com.cctv.springbootspringsecuritydemo.config.enums.PowerEnum;
-import com.cctv.springbootspringsecuritydemo.config.security.ProcessHandler.SecurityAuthenticationSuccessHandler;
+import com.cctv.springbootspringsecuritydemo.config.security.processhandler.SecurityAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

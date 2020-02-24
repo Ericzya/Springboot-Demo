@@ -1,4 +1,4 @@
-package com.cctv.springbootspringsecuritydemo.config.security.PasswordEncoder;
+package com.cctv.springbootspringsecuritydemo.config.security.passwordencoder;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;

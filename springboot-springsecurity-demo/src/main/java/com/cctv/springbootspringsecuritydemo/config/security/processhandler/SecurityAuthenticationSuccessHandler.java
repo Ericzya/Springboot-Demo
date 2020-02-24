@@ -1,4 +1,4 @@
-package com.cctv.springbootspringsecuritydemo.config.security.ProcessHandler;
+package com.cctv.springbootspringsecuritydemo.config.security.processhandler;
 
 import com.cctv.springbootspringsecuritydemo.service.visitor.bo.VisitorBO;
 import com.cctv.springbootspringsecuritydemo.service.visitor.svc.VisitorService;
@@ -32,7 +32,7 @@ public class SecurityAuthenticationSuccessHandler extends SavedRequestAwareAuthe
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        // 获取用户权限
+        // 获取用户权限,这里暂不做处理
 //        Collection<? extends GrantedAuthority> authCollection = authentication.getAuthorities();
 //        if (authCollection.isEmpty()) {
 //            return;
