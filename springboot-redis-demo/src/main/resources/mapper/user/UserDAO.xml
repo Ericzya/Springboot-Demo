@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cctv.springbootredisdemo.persistent.user.pl.UserDAO" >
+    <resultMap id="UserResultMap" type="com.cctv.springbootredisdemo.persistent.user.po.User" >
+        <id column="UserAccount" property="userAccount" jdbcType="VARCHAR" />
+        <result column="UserName" property="userName" jdbcType="VARCHAR" />
+        <result column="UserSexuality" property="userSexuality" jdbcType="VARCHAR" />
+        <result column="AccountPassword" property="accountPassword" jdbcType="VARCHAR" />
+        <result column="UserEmail" property="userEmail" jdbcType="VARCHAR" />
+        <result column="UserBirthday" property="userBirthday" jdbcType="DATE" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        UserAccount,UserName,UserSexuality,AccountPassword,UserEmail,UserBirthday
+    </sql>
+
+    <select id="getUserByEmail" parameterType="string" resultMap="UserResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user
+        WHERE UserEmail= #{emailAddress}
+    </select>
+
+</mapper>
