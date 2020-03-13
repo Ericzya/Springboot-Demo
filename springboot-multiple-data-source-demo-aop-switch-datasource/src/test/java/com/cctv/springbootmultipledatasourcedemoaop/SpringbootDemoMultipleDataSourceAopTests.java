@@ -2,17 +2,19 @@ package com.cctv.springbootmultipledatasourcedemoaop;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.cctv.springbootmultipledatasourcedemoaop.config.exception.JdbcException;
 import com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.pl.ManagerDAO;
 import com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.po.Manager;
 import com.cctv.springbootmultipledatasourcedemoaop.service.manager.svc.ManagerService;
 import com.cctv.springbootmultipledatasourcedemoaop.service.user.svc.UserService;
+import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @SpringBootTest(classes = SpringbootDemoMultipleDataSourceAop.class)
 @RunWith(SpringRunner.class)
 class SpringbootDemoMultipleDataSourceAopTests {
@@ -36,6 +38,7 @@ class SpringbootDemoMultipleDataSourceAopTests {
 
     @Test
     void insertTest() {
+        System.out.println("----------------insert test-----------------");
         Manager manager = new Manager();
         manager.setManagerId("002");
         manager.setManagerName("ahaha");
@@ -48,17 +51,37 @@ class SpringbootDemoMultipleDataSourceAopTests {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("----------------update test-----------------");
+        try {
+            manager = managerDAO.getManagerByEmail("xxx@outlook.com");
+            manager.setManagerName("---------------------");
+            managerDAO.updateManager(manager);
+            manager = managerDAO.getManagerByEmail("xxx@outlook.com");
+            System.out.println("更改" + JSON.toJSONString(manager) + "信息成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("----------------delete test-----------------");
+        try {
+            managerDAO.deleteManagerByEmail("xxx@outlook.com");
+            System.out.println("删除成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     void jsonTest() {
-        Manager manager = managerDAO.getManagerByEmail("ericzya@outlook.com");
-        String s = JSON.toJSONString(manager);
-        System.out.println(s);
-
-        JSONObject jsonObject = JSONObject.parseObject(s);
-        String accountPassword = jsonObject.getString("accountPassword");
-        String emailAddress = jsonObject.getString("emailAddress");
-        System.out.println(accountPassword + "--" + emailAddress);
+        try {
+            Manager manager = managerDAO.getManagerByEmail("ericzya@outlook.com");
+            String s = JSON.toJSONString(manager);
+            System.out.println(s);
+            JSONObject jsonObject = JSONObject.parseObject(s);
+            String accountPassword = jsonObject.getString("accountPassword");
+            String emailAddress = jsonObject.getString("emailAddress");
+            System.out.println(accountPassword + "--" + emailAddress);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

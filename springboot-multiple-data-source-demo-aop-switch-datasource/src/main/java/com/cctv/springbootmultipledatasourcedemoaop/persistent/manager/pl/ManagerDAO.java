@@ -23,12 +23,20 @@ public interface ManagerDAO {
     boolean insertManager(Manager targetManager) throws Exception;
 
     /**
-     * 删除管理员
+     * 通过Id删除管理员
      *
      * @param managerAccount 管理员账号
      * @return 是否成功
      */
-    boolean deleteManagerByAccountId(String managerAccount);
+    boolean deleteManagerByAccountId(String managerAccount) throws Exception;
+
+    /**
+     * 通过Email删除管理员
+     *
+     * @param emailAddress 管理员邮箱
+     * @return 是否成功
+     */
+    boolean deleteManagerByEmail(String emailAddress) throws Exception;
 
     /**
      * 更新管理员信息
@@ -36,7 +44,7 @@ public interface ManagerDAO {
      * @param targetManager 对应管理员
      * @return 是否成功
      */
-    boolean updateManager(Manager targetManager);
+    boolean updateManager(Manager targetManager) throws Exception;
 
     /**
      * login check
@@ -44,12 +52,12 @@ public interface ManagerDAO {
      * @param emailAddress 管理员邮箱
      * @return Manager 对应管理员
      */
-    Manager getManagerByEmail(String emailAddress);
+    Manager getManagerByEmail(String emailAddress) throws Exception;
 
     /**
      * 获取管理员列表
      *
      * @return Manager 对应管理员
      */
-    List<Manager> getManagerList();
+    List<Manager> getManagerList() throws Exception;
 }

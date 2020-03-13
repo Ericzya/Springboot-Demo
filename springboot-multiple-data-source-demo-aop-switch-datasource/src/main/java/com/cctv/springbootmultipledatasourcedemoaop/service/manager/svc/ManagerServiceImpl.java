@@ -20,11 +20,16 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     public boolean loginCheck(String managerEmail, String inputPassword) {
-        Manager targetManager = managerDAO.getManagerByEmail(managerEmail);
-        if (targetManager != null && targetManager.getAccountPassword().equals(inputPassword)) {
-            return true;
-        } else {
-            return false;
+        boolean result = false;
+        try {
+            Manager targetManager = managerDAO.getManagerByEmail(managerEmail);
+            if (targetManager != null && targetManager.getAccountPassword().equals(inputPassword)) {
+                result = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return result;
         }
     }
 }

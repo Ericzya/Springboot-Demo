@@ -22,7 +22,8 @@
         WHERE EmailAddress= #{emailAddress}
     </select>
 
-    <insert id="insertManager" parameterType="com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.po.Manager">
+    <insert id="insertManager"
+            parameterType="com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.po.Manager">
         INSERT INTO
         manager
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -49,6 +50,15 @@
             #{emailAddress,jdbcType=VARCHAR},
         </trim>
     </insert>
+
+    <update id="updateManager"
+            parameterType="com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.po.Manager">
+        UPDATE Manager SET managerName=#{managerName},managerPower=#{managerPower},managerPosition=#{managerPosition},managerSexuality=#{managerSexuality},accountPassword=#{accountPassword},emailAddress=#{emailAddress} WHERE managerId=#{managerId}
+    </update>
+
+    <delete id="deleteManagerByEmail" parameterType="String">
+        DELETE FROM Manager WHERE EmailAddress=#{emailAddress}
+    </delete>
 
 
 </mapper>
