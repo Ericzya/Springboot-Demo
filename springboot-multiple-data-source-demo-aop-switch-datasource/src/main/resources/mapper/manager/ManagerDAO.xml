@@ -1,25 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cctv.springbootmultipledatasourcedemo.persistent.manager.pl.ManagerDAO" >
-    <resultMap id="ManagerResultMap" type="com.cctv.springbootmultipledatasourcedemo.persistent.manager.po.Manager" >
-        <id column="ManagerID" property="managerId" jdbcType="VARCHAR" />
-        <result column="ManagerName" property="managerName" jdbcType="VARCHAR" />
-        <result column="ManagerPower" property="managerPower" jdbcType="VARCHAR" />
-        <result column="ManagerPosition" property="managerPosition" jdbcType="VARCHAR" />
-        <result column="ManagerSexuality" property="managerSexuality" jdbcType="VARCHAR" />
-        <result column="AccountPassword" property="accountPassword" jdbcType="VARCHAR" />
-        <result column="EmailAddress" property="emailAddress" jdbcType="VARCHAR" />
+<mapper namespace="com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.pl.ManagerDAO">
+    <resultMap id="ManagerResultMap" type="com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.po.Manager">
+        <id column="ManagerID" property="managerId" jdbcType="VARCHAR"/>
+        <result column="ManagerName" property="managerName" jdbcType="VARCHAR"/>
+        <result column="ManagerPower" property="managerPower" jdbcType="VARCHAR"/>
+        <result column="ManagerPosition" property="managerPosition" jdbcType="VARCHAR"/>
+        <result column="ManagerSexuality" property="managerSexuality" jdbcType="VARCHAR"/>
+        <result column="AccountPassword" property="accountPassword" jdbcType="VARCHAR"/>
+        <result column="EmailAddress" property="emailAddress" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <sql id="Base_Column_List" >
+    <sql id="Base_Column_List">
         ManagerID,ManagerName,ManagerPower,ManagerPosition,ManagerSexuality,AccountPassword,EmailAddress
     </sql>
 
     <select id="getManagerByEmail" parameterType="string" resultMap="ManagerResultMap">
         SELECT
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         FROM manager
         WHERE EmailAddress= #{emailAddress}
     </select>
+
+    <insert id="insertManager" parameterType="com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.po.Manager">
+        INSERT INTO
+        manager
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            managerId,managerName,
+            <if test="managerPower!=null">
+                managerPower,
+            </if>
+            <if test="managerPosition!=null">
+                managerPosition,
+            </if>
+            managerSexuality,accountPassword,emailAddress,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{managerId,jdbcType=VARCHAR},
+            #{managerName,jdbcType=VARCHAR},
+            <if test="managerPower!=null">
+                #{managerPower,jdbcType=VARCHAR},
+            </if>
+            <if test="managerPosition!=null">
+                #{managerPosition,jdbcType=VARCHAR},
+            </if>
+            #{managerSexuality,jdbcType=VARCHAR},
+            #{accountPassword,jdbcType=VARCHAR},
+            #{emailAddress,jdbcType=VARCHAR},
+        </trim>
+    </insert>
+
 
 </mapper>
