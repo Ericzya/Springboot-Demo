@@ -1,4 +1,4 @@
-package com.cctv.springbootmultipledatasourcedemoaop.service.manager.bo;
+package com.cctv.springbootmultipledatasourcedemoaop.service.model.manager.bo;
 
 import java.util.List;
 

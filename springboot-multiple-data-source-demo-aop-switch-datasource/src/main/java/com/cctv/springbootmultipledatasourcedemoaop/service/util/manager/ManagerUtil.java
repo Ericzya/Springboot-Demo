@@ -1,7 +1,7 @@
-package com.cctv.springbootmultipledatasourcedemoaop.service.manager.util;
+package com.cctv.springbootmultipledatasourcedemoaop.service.util.manager;
 
 import com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.po.Manager;
-import com.cctv.springbootmultipledatasourcedemoaop.service.manager.bo.ManagerBO;
+import com.cctv.springbootmultipledatasourcedemoaop.service.model.manager.bo.ManagerBO;
 
 import java.util.Arrays;
 

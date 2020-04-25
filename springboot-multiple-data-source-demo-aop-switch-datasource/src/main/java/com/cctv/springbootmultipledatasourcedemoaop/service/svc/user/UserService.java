@@ -1,4 +1,4 @@
-package com.cctv.springbootmultipledatasourcedemoaop.service.user.svc;
+package com.cctv.springbootmultipledatasourcedemoaop.service.svc.user;
 
 /**
  * @Author: Eric

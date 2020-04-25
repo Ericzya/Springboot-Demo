@@ -1,4 +1,4 @@
-package com.cctv.springbootmultipledatasourcedemoaop.service.user.bo;
+package com.cctv.springbootmultipledatasourcedemoaop.service.model.user.bo;
 
 import java.util.Date;
 

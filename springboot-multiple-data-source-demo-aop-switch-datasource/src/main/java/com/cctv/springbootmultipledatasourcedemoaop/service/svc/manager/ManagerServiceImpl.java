@@ -1,4 +1,4 @@
-package com.cctv.springbootmultipledatasourcedemoaop.service.manager.svc;
+package com.cctv.springbootmultipledatasourcedemoaop.service.svc.manager;
 
 import com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.pl.ManagerDAO;
 import com.cctv.springbootmultipledatasourcedemoaop.persistent.manager.po.Manager;

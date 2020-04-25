@@ -1,4 +1,4 @@
-package com.cctv.springbootmultipledatasourcedemoaop.service.manager.svc;
+package com.cctv.springbootmultipledatasourcedemoaop.service.svc.manager;
 
 /**
  * @Author: Eric
