@@ -1,6 +1,7 @@
-package com.cctv.springbootmultipledatasourcedemoaop.config.aop;
+package com.cctv.springbootmultipledatasourcedemoaop.config.aop.aspect;
 
-import com.cctv.springbootmultipledatasourcedemoaop.config.database.DataSourceHolder;
+import com.cctv.springbootmultipledatasourcedemoaop.config.aop.annotation.DataSourceAnnotation;
+import com.cctv.springbootmultipledatasourcedemoaop.config.dbconfig.DataSourceHolder;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

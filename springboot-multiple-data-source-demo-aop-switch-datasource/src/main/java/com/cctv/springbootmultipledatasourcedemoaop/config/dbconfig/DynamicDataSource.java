@@ -1,4 +1,4 @@
-package com.cctv.springbootmultipledatasourcedemoaop.config.database;
+package com.cctv.springbootmultipledatasourcedemoaop.config.dbconfig;
 
 import com.cctv.springbootmultipledatasourcedemoaop.config.enums.DataSourceEnum;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;

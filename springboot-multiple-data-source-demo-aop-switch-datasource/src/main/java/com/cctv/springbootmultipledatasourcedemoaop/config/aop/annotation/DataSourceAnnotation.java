@@ -1,4 +1,4 @@
-package com.cctv.springbootmultipledatasourcedemoaop.config.aop;
+package com.cctv.springbootmultipledatasourcedemoaop.config.aop.annotation;
 
 import com.cctv.springbootmultipledatasourcedemoaop.config.enums.DataSourceEnum;
 

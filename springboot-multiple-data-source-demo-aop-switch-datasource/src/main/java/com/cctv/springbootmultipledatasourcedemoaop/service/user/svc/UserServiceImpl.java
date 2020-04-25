@@ -1,6 +1,6 @@
 package com.cctv.springbootmultipledatasourcedemoaop.service.user.svc;
 
-import com.cctv.springbootmultipledatasourcedemoaop.config.aop.DataSourceAnnotation;
+import com.cctv.springbootmultipledatasourcedemoaop.config.aop.annotation.DataSourceAnnotation;
 import com.cctv.springbootmultipledatasourcedemoaop.config.enums.DataSourceEnum;
 import com.cctv.springbootmultipledatasourcedemoaop.persistent.user.pl.UserDAO;
 import com.cctv.springbootmultipledatasourcedemoaop.persistent.user.po.User;
