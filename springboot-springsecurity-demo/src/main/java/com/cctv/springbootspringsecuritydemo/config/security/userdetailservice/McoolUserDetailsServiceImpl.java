@@ -14,12 +14,12 @@ import org.springframework.util.StringUtils;
  * @Date: 2020/2/9 19:33
  */
 @Service
-public class McoolUserDetailsService implements UserDetailsService {
+public class McoolUserDetailsServiceImpl implements UserDetailsService {
 
     private VisitorService visitorService;
 
     @Autowired
-    public McoolUserDetailsService(VisitorService visitorService) {
+    public McoolUserDetailsServiceImpl(VisitorService visitorService) {
         this.visitorService = visitorService;
     }
 

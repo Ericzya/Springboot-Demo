@@ -28,8 +28,7 @@ public class ManagerServiceImpl implements ManagerService {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            return result;
         }
+        return result;
     }
 }

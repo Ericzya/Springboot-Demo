@@ -12,7 +12,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
  * @Date: 2020/1/30 12:47
  */
 public class VisitorUtil {
-    public static VisitorBO convertVisitorVOToBO(VisitorVO visitorVO) {
+    public static VisitorBO convertVisitorVoToBo(VisitorVO visitorVO) {
         //TODO 完成该方法
         return new VisitorBO(visitorVO.getInputAccount(), visitorVO.getInputPassword());
     }

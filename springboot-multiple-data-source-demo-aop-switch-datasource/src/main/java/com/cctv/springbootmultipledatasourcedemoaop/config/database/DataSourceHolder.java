@@ -18,12 +18,7 @@ public class DataSourceHolder {
      *
      * @see ThreadLocal
      */
-    private static final ThreadLocal<DataSourceEnum> contextHolder = new ThreadLocal<DataSourceEnum>() {
-        @Override
-        protected DataSourceEnum initialValue() {
-            return DEFAULT_DATA_SOURCE;
-        }
-    };
+    private static final ThreadLocal<DataSourceEnum> CONTEXT_HOLDER = ThreadLocal.withInitial(() -> DEFAULT_DATA_SOURCE);
 
     /**
      * 获取数据源
@@ -34,14 +29,14 @@ public class DataSourceHolder {
      * @return 数据源键值
      */
     public static DataSourceEnum getDataSource() {
-        return contextHolder.get();
+        return CONTEXT_HOLDER.get();
     }
 
     /**
      * 设置默认数据源
      */
     public static void setDefaultDataSource() {
-        contextHolder.set(DEFAULT_DATA_SOURCE);
+        CONTEXT_HOLDER.set(DEFAULT_DATA_SOURCE);
     }
 
     /**
@@ -57,6 +52,6 @@ public class DataSourceHolder {
      * @param dataSourceEnum 数据源键值
      */
     public static void setDataSource(DataSourceEnum dataSourceEnum) {
-        contextHolder.set(dataSourceEnum);
+        CONTEXT_HOLDER.set(dataSourceEnum);
     }
 }
