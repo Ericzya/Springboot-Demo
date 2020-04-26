@@ -18,51 +18,51 @@ public interface ManagerDAO {
      *
      * @param targetManager 新增管理员
      * @return 是否成功
-     * @exception Exception 存储层异常
+     * @throws JdbcException 存储层异常
      */
-    boolean insertManager(Manager targetManager) throws Exception;
+    boolean insertManager(Manager targetManager) throws JdbcException;
 
     /**
      * 通过Id删除管理员
      *
      * @param managerAccount 管理员账号
      * @return 是否成功
-     * @exception Exception 存储层异常
+     * @throws JdbcException 存储层异常
      */
-    boolean deleteManagerByAccountId(String managerAccount) throws Exception;
+    boolean deleteManagerByAccountId(String managerAccount) throws JdbcException;
 
     /**
      * 通过Email删除管理员
      *
      * @param emailAddress 管理员邮箱
      * @return 是否成功
-     * @exception Exception 存储层异常
+     * @throws JdbcException 存储层异常
      */
-    boolean deleteManagerByEmail(String emailAddress) throws Exception;
+    boolean deleteManagerByEmail(String emailAddress) throws JdbcException;
 
     /**
      * 更新管理员信息
      *
      * @param targetManager 对应管理员
      * @return 是否成功
-     * @exception Exception 存储层异常
+     * @throws JdbcException 存储层异常
      */
-    boolean updateManager(Manager targetManager) throws Exception;
+    boolean updateManager(Manager targetManager) throws JdbcException;
 
     /**
      * login check
      *
      * @param emailAddress 管理员邮箱
      * @return Manager 对应管理员
-     * @exception Exception 存储层异常
+     * @throws JdbcException 存储层异常
      */
-    Manager getManagerByEmail(String emailAddress) throws Exception;
+    Manager getManagerByEmail(String emailAddress) throws JdbcException;
 
     /**
      * 获取管理员列表
      *
      * @return Manager 对应管理员
-     * @exception Exception 存储层异常
+     * @throws JdbcException 存储层异常
      */
-    List<Manager> getManagerList() throws Exception;
+    List<Manager> getManagerList() throws JdbcException;
 }
