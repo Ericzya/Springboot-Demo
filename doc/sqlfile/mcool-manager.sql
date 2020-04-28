@@ -21,16 +21,17 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for manager
 -- ----------------------------
 DROP TABLE IF EXISTS `manager`;
-CREATE TABLE `manager`  (
+CREATE TABLE `manager` (
+  `ID` int NOT NULL AUTO_INCREMENT,
   `ManagerID` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `ManagerName` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `ManagerPower` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `ManagerPosition` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `ManagerPower` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `ManagerPosition` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `ManagerSexuality` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `AccountPassword` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `EmailAddress` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`ManagerID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`ID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of manager

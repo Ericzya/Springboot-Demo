@@ -111,3 +111,5 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*/*.xml
   type-aliases-package: com.cctv.springbootmultipledatasourcedemo.persistent.*.pl
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

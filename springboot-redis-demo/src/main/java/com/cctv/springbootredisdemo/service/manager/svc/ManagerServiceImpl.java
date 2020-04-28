@@ -47,4 +47,9 @@ public class ManagerServiceImpl implements ManagerService {
         }
         return result;
     }
+
+    @Override
+    public void insertManager(Manager manager) {
+        managerDAO.insertManager(manager);
+    }
 }

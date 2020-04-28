@@ -17,8 +17,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>springboot-multiple-data-source-demo-aop-switch-datasource</module>
         <module>springboot-multiple-data-source-demo-different-package</module>
+        <module>springboot-multiple-data-source-demo-aop-switch-datasource</module>
         <module>springboot-springsecurity-demo</module>
         <module>springboot-redis-demo</module>
     </modules>

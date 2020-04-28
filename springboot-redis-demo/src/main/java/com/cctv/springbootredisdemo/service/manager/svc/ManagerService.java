@@ -1,5 +1,7 @@
 package com.cctv.springbootredisdemo.service.manager.svc;
 
+import com.cctv.springbootredisdemo.persistent.manager.po.Manager;
+
 /**
  * @Author: Eric
  * @Date: 2020/1/9 20:42
@@ -13,4 +15,10 @@ public interface ManagerService {
      * @return boolean true-登陆成功，false-登陆失败
      */
     boolean loginCheck(String managerEmail, String inputPassword);
+
+    /**
+     * 插入用户
+     * @param manager
+     */
+    void insertManager(Manager manager);
 }

@@ -1,31 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cctv.springbootredisdemo.persistent.manager.pl.ManagerDAO" >
-    <resultMap id="ManagerResultMap" type="com.cctv.springbootredisdemo.persistent.manager.po.Manager" >
-        <id column="ManagerID" property="managerId" jdbcType="VARCHAR" />
-        <result column="ManagerName" property="managerName" jdbcType="VARCHAR" />
-        <result column="ManagerPower" property="managerPower" jdbcType="VARCHAR" />
-        <result column="ManagerPosition" property="managerPosition" jdbcType="VARCHAR" />
-        <result column="ManagerSexuality" property="managerSexuality" jdbcType="VARCHAR" />
-        <result column="AccountPassword" property="accountPassword" jdbcType="VARCHAR" />
-        <result column="EmailAddress" property="emailAddress" jdbcType="VARCHAR" />
+<mapper namespace="com.cctv.springbootredisdemo.persistent.manager.pl.ManagerDAO">
+    <resultMap id="ManagerResultMap" type="com.cctv.springbootredisdemo.persistent.manager.po.Manager">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="ManagerID" property="managerId" jdbcType="VARCHAR"/>
+        <result column="ManagerName" property="managerName" jdbcType="VARCHAR"/>
+        <result column="ManagerPower" property="managerPower" jdbcType="VARCHAR"/>
+        <result column="ManagerPosition" property="managerPosition" jdbcType="VARCHAR"/>
+        <result column="ManagerSexuality" property="managerSexuality" jdbcType="VARCHAR"/>
+        <result column="AccountPassword" property="accountPassword" jdbcType="VARCHAR"/>
+        <result column="EmailAddress" property="emailAddress" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <sql id="Base_Column_List" >
-        ManagerID,ManagerName,ManagerPower,ManagerPosition,ManagerSexuality,AccountPassword,EmailAddress
+    <sql id="Base_Column_List">
+        id,ManagerID,ManagerName,ManagerPower,ManagerPosition,ManagerSexuality,AccountPassword,EmailAddress
     </sql>
 
     <insert id="insertManager" parameterType="com.cctv.springbootredisdemo.persistent.manager.po.Manager">
         insert into manager
         <trim suffixOverrides="," prefix="(" suffix=")">
-            <if test=""></if>
+            <if test="entity.managerId!=null">
+                ManagerID,
+            </if>
+            <if test="entity.managerName!=null">
+                ManagerName,
+            </if>
+            <if test="entity.managerPower!=null">
+                ManagerPower,
+            </if>
+            <if test="entity.managerPosition!=null">
+                ManagerPosition,
+            </if>
+            <if test="entity.managerSexuality!=null">
+                ManagerSexuality,
+            </if>
+            <if test="entity.accountPassword!=null">
+                AccountPassword,
+            </if>
+            <if test="entity.emailAddress!=null">
+                EmailAddress,
+            </if>
+        </trim>
+        values
+        <trim suffixOverrides="," prefix="(" suffix=")">
+            <if test="entity.managerId!=null">
+                #{entity.managerId,jdbcType=VARCHAR},
+            </if>
+            <if test="entity.managerName!=null">
+                #{entity.managerName,jdbcType=VARCHAR},
+            </if>
+            <if test="entity.managerPower!=null">
+                #{entity.managerPower,jdbcType=VARCHAR},
+            </if>
+            <if test="entity.managerPosition!=null">
+                #{entity.managerPosition,jdbcType=VARCHAR},
+            </if>
+            <if test="entity.managerSexuality!=null">
+                #{entity.managerSexuality,jdbcType=VARCHAR},
+            </if>
+            <if test="entity.accountPassword!=null">
+                #{entity.accountPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="entity.emailAddress!=null">
+                #{entity.emailAddress,jdbcType=VARCHAR},
+            </if>
         </trim>
 
     </insert>
 
     <select id="getManagerByEmail" parameterType="string" resultMap="ManagerResultMap">
         SELECT
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         FROM manager
         WHERE EmailAddress= #{emailAddress}
     </select>

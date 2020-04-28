@@ -1,11 +1,16 @@
 package com.cctv.springbootredisdemo.persistent.manager.po;
 
+import lombok.Data;
+
 /**
  * @Author: Eric
  * @Date: 2020/1/9 19:00
  */
-
 public class Manager {
+    /**
+     * id
+     */
+    private Integer id;
     /**
      * 管理员账号
      */
@@ -34,6 +39,14 @@ public class Manager {
      * 管理员邮箱
      */
     private String emailAddress;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getManagerId() {
         return managerId;

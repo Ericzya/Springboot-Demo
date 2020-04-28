@@ -1,12 +1,15 @@
 package com.cctv.springbootredisdemo;
 
+import com.cctv.springbootredisdemo.persistent.manager.po.Manager;
 import com.cctv.springbootredisdemo.service.manager.svc.ManagerService;
 import com.cctv.springbootredisdemo.service.user.svc.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
+@Slf4j
 class SpringbootRedisDemoApplicationTests {
 
     @Autowired
@@ -25,8 +28,20 @@ class SpringbootRedisDemoApplicationTests {
     }
 
     @Test
-    void insertUsers(){
-
+    void insertUsers() {
+        //插入五百万条数据
+        for (int i = 0; i < 5000000; i++) {
+            Manager manager = new Manager();
+            manager.setManagerId(i+"");
+            manager.setEmailAddress(i + "@qq.com");
+            manager.setAccountPassword(i + "");
+            manager.setManagerName("用户" + i);
+            manager.setManagerSexuality("M");
+            manager.setManagerPosition("不知道");
+            manager.setManagerPower(i + "权限");
+            managerService.insertManager(manager);
+            log.info("插入到第" + i + "条数据！");
+        }
     }
 
 }
