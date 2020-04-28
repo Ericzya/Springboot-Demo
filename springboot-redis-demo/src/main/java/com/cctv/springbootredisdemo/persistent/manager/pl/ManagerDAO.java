@@ -1,6 +1,7 @@
 package com.cctv.springbootredisdemo.persistent.manager.pl;
 
 import com.cctv.springbootredisdemo.persistent.manager.po.Manager;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface ManagerDAO {
      * @param targetManager 新增管理员
      * @return 是否成功
      */
-    boolean insertManager(Manager targetManager);
+    boolean insertManager(@Param("entity") Manager targetManager);
 
     /**
      * 删除管理员

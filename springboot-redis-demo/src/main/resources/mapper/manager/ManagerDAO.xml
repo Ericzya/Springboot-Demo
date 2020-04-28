@@ -15,6 +15,14 @@
         ManagerID,ManagerName,ManagerPower,ManagerPosition,ManagerSexuality,AccountPassword,EmailAddress
     </sql>
 
+    <insert id="insertManager" parameterType="com.cctv.springbootredisdemo.persistent.manager.po.Manager">
+        insert into manager
+        <trim suffixOverrides="," prefix="(" suffix=")">
+            <if test=""></if>
+        </trim>
+
+    </insert>
+
     <select id="getManagerByEmail" parameterType="string" resultMap="ManagerResultMap">
         SELECT
         <include refid="Base_Column_List" />

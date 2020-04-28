@@ -24,4 +24,9 @@ class SpringbootRedisDemoApplicationTests {
         System.out.println("正确用户：" + (userService.loginCheck("ericzya@outlook.com", "445566") ? "登陆成功" : "登陆失败"));
     }
 
+    @Test
+    void insertUsers(){
+
+    }
+
 }
