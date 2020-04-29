@@ -27,21 +27,4 @@ class SpringbootRedisDemoApplicationTests {
         System.out.println("正确用户：" + (userService.loginCheck("ericzya@outlook.com", "445566") ? "登陆成功" : "登陆失败"));
     }
 
-    @Test
-    void insertUsers() {
-        //插入五百万条数据
-        for (int i = 0; i < 5000000; i++) {
-            Manager manager = new Manager();
-            manager.setManagerId(i+"");
-            manager.setEmailAddress(i + "@qq.com");
-            manager.setAccountPassword(i + "");
-            manager.setManagerName("用户" + i);
-            manager.setManagerSexuality("M");
-            manager.setManagerPosition("不知道");
-            manager.setManagerPower(i + "权限");
-            managerService.insertManager(manager);
-            log.info("插入到第" + i + "条数据！");
-        }
-    }
-
 }

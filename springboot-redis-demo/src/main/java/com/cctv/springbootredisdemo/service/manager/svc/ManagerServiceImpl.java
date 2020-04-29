@@ -29,6 +29,7 @@ public class ManagerServiceImpl implements ManagerService {
         boolean result = false;
         Manager targetManager;
         //从缓存获取用户信息，若信息不存在，从表中获取，并存入缓存
+        log.info(redisUtils.getExpire(managerEmail) + "过期时间");
         if (redisUtils.exists(managerEmail)) {
             targetManager = JSONObject.parseObject((String) redisUtils.get(managerEmail), Manager.class);
             if (targetManager.getAccountPassword().equals(inputPassword)) {
@@ -41,6 +42,7 @@ public class ManagerServiceImpl implements ManagerService {
                 log.info("未找到对应用户！");
                 return false;
             }
+            redisUtils.remove(managerEmail);
             redisUtils.set(managerEmail, JSONObject.toJSONString(targetManager));
             result = true;
             log.info("将对应用户存入缓存！");
