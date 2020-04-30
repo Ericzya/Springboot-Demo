@@ -68,7 +68,7 @@
 
     </insert>
 
-    <select id="getManagerByEmail" parameterType="string" resultMap="ManagerResultMap">
+    <select id="getManagerByEmail" parameterType="String" resultMap="ManagerResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         FROM manager

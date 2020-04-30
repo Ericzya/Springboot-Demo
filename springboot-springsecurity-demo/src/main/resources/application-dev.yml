@@ -108,7 +108,12 @@ spring:
     druid:
       #合并多个DruidDataSource的监控数据
       use-global-data-source-stat: true
-
+      #druid监控配置
+      filters: stat,wall,log4j2
+      filter:
+        commons-log:
+          statement-log-enabled: true
+          statement-executable-sql-log-enable: true
 
 mybatis:
   mapper-locations: classpath:persistent/*/pl/

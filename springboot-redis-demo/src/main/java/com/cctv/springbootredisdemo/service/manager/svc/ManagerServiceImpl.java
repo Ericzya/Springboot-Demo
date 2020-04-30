@@ -29,7 +29,7 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public boolean loginCheck(String managerEmail, String inputPassword) {
         boolean result = false;
-        Manager targetManager;
+        Manager targetManager = null;
         //从缓存获取用户信息，若信息不存在，从表中获取，并存入缓存
         long expireTime = redisUtils.getExpire(managerEmail);
         if (expireTime == -2) {
@@ -46,7 +46,11 @@ public class ManagerServiceImpl implements ManagerService {
             }
             log.info("从缓存中获取了用户！");
         } else {
-            targetManager = managerDAO.getManagerByEmail(managerEmail);
+            try {
+                targetManager = managerDAO.getManagerByEmail(managerEmail);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             if (targetManager == null) {
                 log.info("未找到对应用户！");
                 return false;
