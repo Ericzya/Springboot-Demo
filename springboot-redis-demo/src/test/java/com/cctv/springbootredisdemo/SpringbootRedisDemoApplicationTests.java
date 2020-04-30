@@ -1,8 +1,7 @@
 package com.cctv.springbootredisdemo;
 
-import com.cctv.springbootredisdemo.persistent.manager.po.Manager;
-import com.cctv.springbootredisdemo.service.manager.svc.ManagerService;
-import com.cctv.springbootredisdemo.service.user.svc.UserService;
+import com.cctv.springbootredisdemo.service.svc.ManagerService;
+import com.cctv.springbootredisdemo.service.svc.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

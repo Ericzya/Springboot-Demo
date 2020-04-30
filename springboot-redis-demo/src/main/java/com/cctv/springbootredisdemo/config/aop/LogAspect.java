@@ -23,30 +23,8 @@ import java.util.Arrays;
 public class LogAspect {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
-    @Pointcut("execution(public * com.cctv.springbootredisdemo.web.*.controller.*.*(..))")
-    public void setControllerLog() {
-    }
-
-    @Pointcut("execution(public * com.cctv.springbootredisdemo.service.*.svc.*.*(..))")
+    @Pointcut("execution(public * com.cctv.springbootredisdemo.service.svc.*.*(..))")
     public void setServiceLog() {
-    }
-
-    @Before("setControllerLog()")
-    public void printControllerLog(JoinPoint joinPoint) {
-        logger.info("---------------------------Controller Log Begin---------------------------");
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        if (requestAttributes == null) {
-            logger.error("RequestAttributes为空！");
-        } else {
-            HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
-            // 记录请求URL,Get/Post,IP,参数,方法等
-            logger.info("URL : " + request.getRequestURL().toString());
-            logger.info("HTTP_METHOD : " + request.getMethod());
-            logger.info("IP : " + request.getRemoteAddr());
-            logger.info("THE ARGS OF THE CONTROLLER : " + Arrays.toString(joinPoint.getArgs()));
-            logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-            logger.info("---------------------------Controller Log End---------------------------");
-        }
     }
 
     @Before("setServiceLog()")

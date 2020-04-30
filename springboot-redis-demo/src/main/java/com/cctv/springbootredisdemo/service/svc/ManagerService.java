@@ -1,4 +1,4 @@
-package com.cctv.springbootredisdemo.service.manager.svc;
+package com.cctv.springbootredisdemo.service.svc;
 
 import com.cctv.springbootredisdemo.persistent.manager.po.Manager;
 

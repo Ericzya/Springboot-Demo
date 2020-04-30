@@ -1,9 +1,10 @@
-package com.cctv.springbootredisdemo.service.manager.svc;
+package com.cctv.springbootredisdemo.service.svc;
 
 import com.alibaba.fastjson.JSONObject;
 import com.cctv.springbootredisdemo.config.redis.RedisUtils;
 import com.cctv.springbootredisdemo.persistent.manager.pl.ManagerDAO;
 import com.cctv.springbootredisdemo.persistent.manager.po.Manager;
+import com.cctv.springbootredisdemo.service.enums.RedisDataStatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,11 +33,11 @@ public class ManagerServiceImpl implements ManagerService {
         Manager targetManager = null;
         //从缓存获取用户信息，若信息不存在，从表中获取，并存入缓存
         long expireTime = redisUtils.getExpire(managerEmail);
-        if (expireTime == -2) {
+        if (expireTime == RedisDataStatusEnum.UNEXIST.getStatus()) {
             log.info(managerEmail + "在缓存中不存在");
-        } else if (expireTime == -1) {
+        } else if (expireTime == RedisDataStatusEnum.NEVER_EXPIRED.getStatus()) {
             log.info(managerEmail + "在缓存中永不过时");
-        } else if (expireTime >= 0) {
+        } else if (expireTime >= RedisDataStatusEnum.NORMAL.getStatus()) {
             log.info(redisUtils.getExpire(managerEmail) + "过期时间");
         }
         if (redisUtils.exists(managerEmail)) {

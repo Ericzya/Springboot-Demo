@@ -1,4 +1,4 @@
-package com.cctv.springbootredisdemo.service.manager.bo;
+package com.cctv.springbootredisdemo.service.bo;
 
 import java.util.List;
 

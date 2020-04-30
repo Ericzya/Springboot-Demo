@@ -1,4 +1,4 @@
-package com.cctv.springbootredisdemo.service.user.svc;
+package com.cctv.springbootredisdemo.service.svc;
 
 import com.cctv.springbootredisdemo.persistent.user.pl.UserDAO;
 import com.cctv.springbootredisdemo.persistent.user.po.User;

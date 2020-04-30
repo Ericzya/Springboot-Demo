@@ -1,4 +1,4 @@
-package com.cctv.springbootredisdemo.service.user.svc;
+package com.cctv.springbootredisdemo.service.svc;
 
 /**
  * @Author: Eric

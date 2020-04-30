@@ -1,4 +1,4 @@
-package com.cctv.springbootredisdemo.service.user.bo;
+package com.cctv.springbootredisdemo.service.bo;
 
 import java.util.Date;
 
