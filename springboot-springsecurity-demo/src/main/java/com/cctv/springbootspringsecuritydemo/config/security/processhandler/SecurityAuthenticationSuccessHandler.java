@@ -33,10 +33,7 @@ public class SecurityAuthenticationSuccessHandler extends SavedRequestAwareAuthe
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         // 获取用户权限,这里暂不做处理
-//        Collection<? extends GrantedAuthority> authCollection = authentication.getAuthorities();
-//        if (authCollection.isEmpty()) {
-//            return;
-//        }
+
         // 认证成功后，获取用户信息并添加到session中
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         VisitorBO visitorBO = visitorService.getVisitorBO(userDetails.getUsername());
