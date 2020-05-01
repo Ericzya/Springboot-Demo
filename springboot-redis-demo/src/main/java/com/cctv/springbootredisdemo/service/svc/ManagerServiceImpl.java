@@ -34,7 +34,7 @@ public class ManagerServiceImpl implements ManagerService {
         //从缓存获取用户信息，若信息不存在，从表中获取，并存入缓存
         long expireTime = redisUtils.getExpire(managerEmail);
         if (expireTime == RedisDataStatusEnum.UNEXIST.getStatus()) {
-            log.info(managerEmail + "在缓存中不存在");
+            log.info("用户"+managerEmail + "在缓存中不存在");
         } else if (expireTime == RedisDataStatusEnum.NEVER_EXPIRED.getStatus()) {
             log.info(managerEmail + "在缓存中永不过时");
         } else if (expireTime >= RedisDataStatusEnum.NORMAL.getStatus()) {
