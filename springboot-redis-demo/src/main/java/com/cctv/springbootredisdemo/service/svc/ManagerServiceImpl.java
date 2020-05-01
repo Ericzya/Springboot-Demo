@@ -38,7 +38,7 @@ public class ManagerServiceImpl implements ManagerService {
         } else if (expireTime == RedisDataStatusEnum.NEVER_EXPIRED.getStatus()) {
             log.info(managerEmail + "在缓存中永不过时");
         } else if (expireTime >= RedisDataStatusEnum.NORMAL.getStatus()) {
-            log.info(redisUtils.getExpire(managerEmail) + "过期时间");
+            log.info(redisUtils.getExpire(managerEmail) + "seconds 剩余过期时间！");
         }
         if (redisUtils.exists(managerEmail)) {
             targetManager = JSONObject.parseObject((String) redisUtils.get(managerEmail), Manager.class);
