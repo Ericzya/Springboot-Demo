@@ -1,4 +1,4 @@
-package com.cctv.springbootredisdemo.persistent.user.po;
+package com.cctv.springbootredisdemo.persistent.po.user;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
 package com.cctv.springbootredisdemo.service.util;
 
-import com.cctv.springbootredisdemo.persistent.manager.po.Manager;
+import com.cctv.springbootredisdemo.persistent.po.manager.Manager;
 import com.cctv.springbootredisdemo.service.bo.ManagerBO;
 
 import java.util.Arrays;

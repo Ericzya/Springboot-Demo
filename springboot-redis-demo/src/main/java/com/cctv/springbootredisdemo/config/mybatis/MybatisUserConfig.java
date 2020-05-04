@@ -20,7 +20,7 @@ import javax.sql.DataSource;
  * @Date: 2020/1/27 15:39
  */
 @Configuration
-@MapperScan(basePackages = "com.cctv.springbootredisdemo.persistent.user", sqlSessionTemplateRef = "userSqlSessionTemplate")
+@MapperScan(basePackages = "com.cctv.springbootredisdemo.persistent.pl.user", sqlSessionTemplateRef = "userSqlSessionTemplate")
 public class MybatisUserConfig {
     @Bean(name = "userDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.user")

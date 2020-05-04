@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cctv.springbootredisdemo.persistent.manager.pl.ManagerDAO">
-    <resultMap id="ManagerResultMap" type="com.cctv.springbootredisdemo.persistent.manager.po.Manager">
+<mapper namespace="com.cctv.springbootredisdemo.persistent.pl.manager.ManagerDAO">
+    <resultMap id="ManagerResultMap" type="com.cctv.springbootredisdemo.persistent.po.manager.Manager">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="ManagerID" property="managerId" jdbcType="VARCHAR"/>
         <result column="ManagerName" property="managerName" jdbcType="VARCHAR"/>
@@ -16,7 +16,7 @@
         id,ManagerID,ManagerName,ManagerPower,ManagerPosition,ManagerSexuality,AccountPassword,EmailAddress
     </sql>
 
-    <insert id="insertManager" parameterType="com.cctv.springbootredisdemo.persistent.manager.po.Manager">
+    <insert id="insertManager" parameterType="com.cctv.springbootredisdemo.persistent.po.manager.Manager">
         insert into manager
         <trim suffixOverrides="," prefix="(" suffix=")">
             <if test="entity.managerId!=null">

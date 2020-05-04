@@ -108,6 +108,6 @@ spring:
 
 
 
-mybatis:
-  mapper-locations: classpath:mapper/*/*.xml
-  type-aliases-package: com.cctv.springbootmultipledatasourcedemo.persistent.*.pl
+#mybatis:
+#  mapper-locations: classpath:mapper/*/*.xml
+#  type-aliases-package: com.cctv.springbootredisdemo.persistent.pl

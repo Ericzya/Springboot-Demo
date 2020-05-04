@@ -1,6 +1,6 @@
-package com.cctv.springbootredisdemo.persistent.user.pl;
+package com.cctv.springbootredisdemo.persistent.pl.user;
 
-import com.cctv.springbootredisdemo.persistent.user.po.User;
+import com.cctv.springbootredisdemo.persistent.po.user.User;
 
 /**
  * @Author: Eric

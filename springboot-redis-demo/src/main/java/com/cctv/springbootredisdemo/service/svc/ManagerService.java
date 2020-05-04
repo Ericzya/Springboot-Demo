@@ -1,6 +1,6 @@
 package com.cctv.springbootredisdemo.service.svc;
 
-import com.cctv.springbootredisdemo.persistent.manager.po.Manager;
+import com.cctv.springbootredisdemo.persistent.po.manager.Manager;
 
 /**
  * @Author: Eric

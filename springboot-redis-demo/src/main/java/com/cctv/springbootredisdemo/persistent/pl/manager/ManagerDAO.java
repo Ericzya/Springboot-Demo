@@ -1,6 +1,6 @@
-package com.cctv.springbootredisdemo.persistent.manager.pl;
+package com.cctv.springbootredisdemo.persistent.pl.manager;
 
-import com.cctv.springbootredisdemo.persistent.manager.po.Manager;
+import com.cctv.springbootredisdemo.persistent.po.manager.Manager;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

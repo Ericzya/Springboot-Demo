@@ -1,4 +1,4 @@
-package com.cctv.springbootredisdemo.persistent.manager.po;
+package com.cctv.springbootredisdemo.persistent.po.manager;
 
 import lombok.Data;
 
