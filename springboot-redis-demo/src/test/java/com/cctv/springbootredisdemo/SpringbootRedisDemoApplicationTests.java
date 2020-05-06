@@ -46,6 +46,9 @@ class SpringbootRedisDemoApplicationTests {
 
     @Test
     void testRedisAddHash() {
+        if(redisUtils.hasKey("hash")){
+            redisUtils.remove("hash");
+        }
         log.info("存入hash!");
         HashMap<String, Object> targetHash = new HashMap<>();
         targetHash.put("name", "Eric");
@@ -55,11 +58,13 @@ class SpringbootRedisDemoApplicationTests {
         log.info("直接获取hash key:sex，值为：" + redisUtils.getMapString("hash", "sex"));
         log.info("hash键值对数量为：" + redisUtils.hashSize("hash"));
         log.info("hash所有的键为：" + redisUtils.hashKeys("hash"));
-        redisUtils.remove("hash");
     }
 
     @Test
     void testRedisAddList() {
+        if(redisUtils.hasKey("list")){
+            redisUtils.remove("list");
+        }
         log.info("存入list!");
         List<Integer> list = new ArrayList<>();
         list.add(1);
