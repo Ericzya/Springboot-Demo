@@ -32,15 +32,15 @@ public class ManagerServiceImpl implements ManagerService {
         boolean result = false;
         Manager targetManager = null;
         //从缓存获取用户信息，若信息不存在，从表中获取，并存入缓存
-        long expireTime = redisUtils.getExpire(managerEmail);
+        long expireTime = redisUtils.getTime(managerEmail);
         if (expireTime == RedisDataStatusEnum.UNEXIST.getStatus()) {
-            log.info("用户"+managerEmail + "在缓存中不存在");
+            log.info("用户" + managerEmail + "在缓存中不存在");
         } else if (expireTime == RedisDataStatusEnum.NEVER_EXPIRED.getStatus()) {
             log.info(managerEmail + "在缓存中永不过时");
         } else if (expireTime >= RedisDataStatusEnum.NORMAL.getStatus()) {
-            log.info(redisUtils.getExpire(managerEmail) + "seconds 剩余过期时间！");
+            log.info(redisUtils.getTime(managerEmail) + "seconds 剩余过期时间！");
         }
-        if (redisUtils.exists(managerEmail)) {
+        if (redisUtils.hasKey(managerEmail)) {
             targetManager = JSONObject.parseObject((String) redisUtils.get(managerEmail), Manager.class);
             if (targetManager.getAccountPassword().equals(inputPassword)) {
                 result = true;
@@ -57,7 +57,7 @@ public class ManagerServiceImpl implements ManagerService {
                 return false;
             }
             redisUtils.remove(managerEmail);
-            redisUtils.set(managerEmail, JSONObject.toJSONString(targetManager), Long.parseLong("1"), TimeUnit.MINUTES);
+            redisUtils.set(managerEmail, JSONObject.toJSONString(targetManager), Long.parseLong("60"));
             result = true;
             log.info("将对应用户存入缓存！");
         }

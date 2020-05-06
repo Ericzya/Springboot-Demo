@@ -105,9 +105,3 @@ spring:
         login-password: admin
       #通过connectProperties属性来打开mergeSql功能；慢SQL记录
       connection-properties: "druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500"
-
-
-
-#mybatis:
-#  mapper-locations: classpath:mapper/*/*.xml
-#  type-aliases-package: com.cctv.springbootredisdemo.persistent.pl
