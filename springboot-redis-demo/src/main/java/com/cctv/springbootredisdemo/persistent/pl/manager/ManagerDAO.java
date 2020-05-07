@@ -17,15 +17,23 @@ public interface ManagerDAO {
      * @param targetManager 新增管理员
      * @return 是否成功
      */
-    boolean insertManager(@Param("entity") Manager targetManager);
+    int insertManager(@Param("entity") Manager targetManager);
 
     /**
      * 删除管理员
      *
-     * @param managerAccount 管理员账号
+     * @param id 管理员id
      * @return 是否成功
      */
-    boolean deleteManagerByAccountId(String managerAccount);
+    boolean deleteManagerById(@Param("id") Integer id);
+
+    /**
+     * 删除管理员
+     *
+     * @param email 管理员邮箱
+     * @return 是否成功
+     */
+    boolean deleteManagerByEmail(String email);
 
     /**
      * 更新管理员信息
@@ -41,7 +49,15 @@ public interface ManagerDAO {
      * @param emailAddress 管理员邮箱
      * @return Manager 对应管理员
      */
-    Manager getManagerByEmail(String emailAddress);
+    Manager getManagerByEmail(@Param("emailAddress") String emailAddress);
+
+    /**
+     * login check
+     *
+     * @param id 管理员id
+     * @return Manager 对应管理员
+     */
+    Manager getManagerById(@Param("id") Integer id);
 
     /**
      * 获取管理员列表

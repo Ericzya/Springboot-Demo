@@ -2,6 +2,7 @@ package com.cctv.springbootredisdemo;
 
 import com.alibaba.fastjson.JSON;
 import com.cctv.springbootredisdemo.config.redis.RedisUtils;
+import com.cctv.springbootredisdemo.persistent.po.manager.Manager;
 import com.cctv.springbootredisdemo.service.svc.ManagerService;
 import com.cctv.springbootredisdemo.service.svc.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,17 @@ class SpringbootRedisDemoApplicationTests {
         System.out.println("正确管理员：" + (managerService.loginCheck("ericzya@outlook.com", "112233") ? "登陆成功" : "登陆失败"));
         System.out.println("错误用户：" + (userService.loginCheck("ericzya@outlook.com", "1") ? "登陆成功" : "登陆失败"));
         System.out.println("正确用户：" + (userService.loginCheck("ericzya@outlook.com", "445566") ? "登陆成功" : "登陆失败"));
+    }
+
+    @Test
+    void testManagerCache() {
+        Manager manager = new Manager(null, "2", "test", "", "", "M", "112233", "2@outlook.com");
+        managerService.insertManager(manager);
+        manager = managerService.getManagerById(manager.getId());
+        log.info("获取manager:" + manager.toString());
+        log.info("再次获取manager:" + managerService.getManagerById(manager.getId()));
+        managerService.deleteManagerByEmail("2@outlook.com");
+        log.info("获取manager:" + managerService.getManagerById(manager.getId()));
     }
 
     @Test

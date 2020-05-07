@@ -7,9 +7,10 @@ import com.cctv.springbootredisdemo.persistent.po.manager.Manager;
 import com.cctv.springbootredisdemo.service.enums.RedisDataStatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: Eric
@@ -65,7 +66,37 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    public void insertManager(Manager manager) {
-        managerDAO.insertManager(manager);
+    @CachePut(value = "manager", key = "#manager.id")
+    public int insertManager(Manager manager) {
+        log.info("进入insertManager方法！");
+        return managerDAO.insertManager(manager);
+    }
+
+    @Override
+    @Cacheable(value = "manager", key = "#email")
+    public Manager getManagerByEmail(String email) {
+        log.info("进入getManagerByEmail方法！");
+        return managerDAO.getManagerByEmail(email);
+    }
+
+    @Override
+    @CacheEvict(value = "manager", key = "#email")
+    public void deleteManagerByEmail(String email) {
+        log.info("进入deleteManagerByEmail方法！");
+        managerDAO.deleteManagerByEmail(email);
+    }
+
+    @Override
+    @Cacheable(value = "manager", key = "#id")
+    public Manager getManagerById(Integer id) {
+        log.info("进入getManagerById方法！");
+        return managerDAO.getManagerById(id);
+    }
+
+    @Override
+    @CacheEvict(value = "manager", key = "#id")
+    public void deleteManagerById(Integer id) {
+        log.info("进入deleteManagerById方法！");
+        managerDAO.deleteManagerById(id);
     }
 }

@@ -1,12 +1,22 @@
 package com.cctv.springbootredisdemo.persistent.po.manager;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 /**
  * @Author: Eric
  * @Date: 2020/1/9 19:00
  */
-public class Manager {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Manager implements Serializable {
+
+    private static final long serialVersionUID = 1822282459715439733L;
+
     /**
      * id
      */
@@ -39,69 +49,5 @@ public class Manager {
      * 管理员邮箱
      */
     private String emailAddress;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getManagerId() {
-        return managerId;
-    }
-
-    public void setManagerId(String managerId) {
-        this.managerId = managerId;
-    }
-
-    public String getManagerName() {
-        return managerName;
-    }
-
-    public void setManagerName(String managerName) {
-        this.managerName = managerName;
-    }
-
-    public String getManagerPower() {
-        return managerPower;
-    }
-
-    public void setManagerPower(String managerPower) {
-        this.managerPower = managerPower;
-    }
-
-    public String getManagerPosition() {
-        return managerPosition;
-    }
-
-    public void setManagerPosition(String managerPosition) {
-        this.managerPosition = managerPosition;
-    }
-
-    public String getManagerSexuality() {
-        return managerSexuality;
-    }
-
-    public void setManagerSexuality(String managerSexuality) {
-        this.managerSexuality = managerSexuality;
-    }
-
-    public String getAccountPassword() {
-        return accountPassword;
-    }
-
-    public void setAccountPassword(String accountPassword) {
-        this.accountPassword = accountPassword;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
 }
 

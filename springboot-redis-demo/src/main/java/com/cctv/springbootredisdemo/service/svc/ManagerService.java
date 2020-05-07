@@ -17,8 +17,40 @@ public interface ManagerService {
     boolean loginCheck(String managerEmail, String inputPassword);
 
     /**
-     * 插入用户
+     * 插入管理员
+     *
      * @param manager
+     * @return
      */
-    void insertManager(Manager manager);
+    int insertManager(Manager manager);
+
+    /**
+     * 根据邮箱获取管理员
+     *
+     * @param email
+     * @return
+     */
+    Manager getManagerByEmail(String email);
+
+    /**
+     * 根据邮箱删除管理员
+     *
+     * @param email
+     */
+    void deleteManagerByEmail(String email);
+
+    /**
+     * 根据id获取管理员
+     *
+     * @param id
+     * @return
+     */
+    Manager getManagerById(Integer id);
+
+    /**
+     * 根据id删除管理员
+     *
+     * @param id
+     */
+    void deleteManagerById(Integer id);
 }

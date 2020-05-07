@@ -16,7 +16,8 @@
         id,ManagerID,ManagerName,ManagerPower,ManagerPosition,ManagerSexuality,AccountPassword,EmailAddress
     </sql>
 
-    <insert id="insertManager" parameterType="com.cctv.springbootredisdemo.persistent.po.manager.Manager">
+    <insert id="insertManager" parameterType="com.cctv.springbootredisdemo.persistent.po.manager.Manager"
+            useGeneratedKeys="true" keyProperty="entity.id">
         insert into manager
         <trim suffixOverrides="," prefix="(" suffix=")">
             <if test="entity.managerId!=null">
@@ -75,4 +76,20 @@
         WHERE EmailAddress= #{emailAddress}
     </select>
 
+    <select id="getManagerById" parameterType="Integer" resultMap="ManagerResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM manager
+        WHERE id= #{id}
+    </select>
+
+    <delete id="deleteManagerByEmail">
+        DELETE FROM manager
+        WHERE EmailAddress= #{email}
+    </delete>
+
+    <delete id="deleteManagerById">
+        DELETE FROM manager
+        WHERE id= #{id}
+    </delete>
 </mapper>
