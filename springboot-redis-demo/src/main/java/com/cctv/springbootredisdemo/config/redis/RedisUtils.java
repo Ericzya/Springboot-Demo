@@ -176,63 +176,71 @@ public class RedisUtils {
     //- - - - - - - - - - - - - - - - - - - - -  set类型 - - - - - - - - - - - - - - - - - - - -
 
     /**
-     * 将数据放入set缓存
+     * 将数据放入set
      *
      * @param key 键
      * @return
      */
-    public void sSet(String key, String value) {
+    public void sAdd(String key, String value) {
         redisTemplate.opsForSet().add(key, value);
     }
 
+    public void sAdd(String key, Set set) {
+        if (set != null) {
+            set.forEach(obj -> {
+                redisTemplate.opsForSet().add(key, obj);
+            });
+        }
+    }
+
     /**
-     * 获取变量中的值
+     * 获取set
      *
      * @param key 键
      * @return
      */
-    public Set<Object> members(String key) {
+    public Set<Object> sMembers(String key) {
         return redisTemplate.opsForSet().members(key);
     }
 
     /**
-     * 随机获取变量中指定个数的元素
+     * 随机获取set中指定个数的元素
      *
      * @param key   键
      * @param count 值
      * @return
      */
-    public void randomMembers(String key, long count) {
+    public void sRandomMembers(String key, long count) {
         redisTemplate.opsForSet().randomMembers(key, count);
     }
 
     /**
-     * 随机获取变量中的元素
+     * 随机获取set中的元素
      *
      * @param key 键
      * @return
      */
-    public Object randomMember(String key) {
+    public Object sRandomMember(String key) {
         return redisTemplate.opsForSet().randomMember(key);
     }
 
     /**
-     * 弹出变量中的元素
+     * 弹出set中的元素
      *
      * @param key 键
      * @return
      */
-    public Object pop(String key) {
-        return redisTemplate.opsForSet().pop("setValue");
+    public Object sPop(String key) {
+        return redisTemplate.opsForSet().pop(key);
     }
 
     /**
-     * 获取变量中值的长度
+     * 获取set长度
      *
      * @param key 键
      * @return
      */
-    public long size(String key) {
+    public long sSize(String key) {
         return redisTemplate.opsForSet().size(key);
     }
 
@@ -248,17 +256,6 @@ public class RedisUtils {
     }
 
     /**
-     * 检查给定的元素是否在变量中。
-     *
-     * @param key 键
-     * @param obj 元素对象
-     * @return
-     */
-    public boolean isMember(String key, Object obj) {
-        return redisTemplate.opsForSet().isMember(key, obj);
-    }
-
-    /**
      * 转移变量的元素值到目的变量。
      *
      * @param key     键
@@ -266,7 +263,7 @@ public class RedisUtils {
      * @param destKey 元素对象
      * @return
      */
-    public boolean move(String key, String value, String destKey) {
+    public boolean sMove(String key, String value, String destKey) {
         return redisTemplate.opsForSet().move(key, value, destKey);
     }
 
@@ -277,7 +274,7 @@ public class RedisUtils {
      * @param values 值
      * @return
      */
-    public void remove(String key, Object... values) {
+    public void sRemove(String key, Object... values) {
         redisTemplate.opsForSet().remove(key, values);
     }
 
@@ -288,8 +285,12 @@ public class RedisUtils {
      * @param destKey 键
      * @return
      */
-    public Set<Set> difference(String key, String destKey) {
+    public Set<Set> sDifference(String key, String destKey) {
         return redisTemplate.opsForSet().difference(key, destKey);
+    }
+
+    public Set sIntersectAndStore(String set1, String set2) {
+        return redisTemplate.opsForSet().intersect(set1, set2);
     }
 
 
@@ -547,8 +548,6 @@ public class RedisUtils {
         return redisTemplate.opsForList().size(key);
     }
 
-    //------------------------------set ?---------------------------------------
-
     /**
      * 移除集合中的左边第一个元素。
      *
@@ -587,5 +586,72 @@ public class RedisUtils {
      */
     public void rightPop(String key, long timeout, TimeUnit unit) {
         redisTemplate.opsForList().rightPop(key, timeout, unit);
+    }
+
+    //- - - - - - - - - - - - - - - - - - - - -  Sorted Set类型 - - - - - - - - - - - - - - - - - - - -
+
+    /**
+     * 添加值
+     *
+     * @param key
+     * @param value
+     * @param score
+     */
+    public void zAdd(String key, Object value, Double score) {
+        redisTemplate.opsForZSet().add(key, value, score);
+    }
+
+    /**
+     * 去除值
+     *
+     * @param key
+     * @param values
+     */
+    public void zRemove(String key, Object... values) {
+        redisTemplate.opsForZSet().remove(key, values);
+    }
+
+    /**
+     * 给值增加权重
+     *
+     * @param key
+     * @param value
+     * @param addScore
+     * @return
+     */
+    public Double zIncrementScore(String key, Object value, Double addScore) {
+        return redisTemplate.opsForZSet().incrementScore(key, value, addScore);
+    }
+
+    /**
+     * 返回有序集中指定成员的排名，其中有序集成员按分数值递增(从小到大)顺序排列
+     *
+     * @param key
+     * @param value
+     * @return
+     */
+    public Long zRank(String key,Object value){
+        return redisTemplate.opsForZSet().rank(key,value);
+    }
+
+    /**
+     * 返回有序集中指定成员的排名，其中有序集成员按分数值递减(从大到小)顺序排列
+     *
+     * @param key
+     * @param value
+     * @return
+     */
+    public Long zReverseRank(String key,Object value){
+        return redisTemplate.opsForZSet().reverseRank(key,value);
+    }
+
+    /**
+     * 获取有序集合的成员数
+     *
+     * @param key
+     * @return
+     */
+    public Long zSize(String key){
+        return redisTemplate.opsForZSet().size(key);
     }
 }

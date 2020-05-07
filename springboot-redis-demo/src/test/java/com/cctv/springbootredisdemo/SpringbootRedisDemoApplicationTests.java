@@ -9,9 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @SpringBootTest
 @Slf4j
@@ -38,14 +36,14 @@ class SpringbootRedisDemoApplicationTests {
     }
 
     @Test
-    void testRedisAddString() {
+    void testRedisString() {
         log.info("存入string!");
         redisUtils.set("string", "value", Long.parseLong("10"));
         log.info("取出string，值为：" + redisUtils.get("string"));
     }
 
     @Test
-    void testRedisAddHash() {
+    void testRedisHash() {
         if (redisUtils.hasKey("hash")) {
             redisUtils.remove("hash");
         }
@@ -61,7 +59,7 @@ class SpringbootRedisDemoApplicationTests {
     }
 
     @Test
-    void testRedisAddList() {
+    void testRedisList() {
         if (redisUtils.hasKey("list")) {
             redisUtils.remove("list");
         }
@@ -72,16 +70,55 @@ class SpringbootRedisDemoApplicationTests {
         list.add(4);
         redisUtils.leftPushAll("list", list);
         log.info("存入list的值为：" + JSON.toJSONString(redisUtils.range("list", 0, -1)));
-        log.info("在最左加入值0：");
+        log.info("在最左加入值0！");
         redisUtils.leftPush("list", 0);
         log.info("现在list的值为：" + JSON.toJSONString(redisUtils.range("list", 0, -1)));
-        log.info("在最右加入值5：");
+        log.info("在最右加入值5！");
         redisUtils.rightPush("list", 5);
         log.info("现在list的值为：" + JSON.toJSONString(redisUtils.range("list", 0, -1)));
-        log.info("在3前加入值2：");
+        log.info("在3前加入值2！");
         redisUtils.leftPush("list", 3, 2);
         log.info("现在list的值为：" + JSON.toJSONString(redisUtils.range("list", 0, -1)));
         log.info("获取第四个值：" + redisUtils.index("list", 3));
         log.info("现在list共有" + redisUtils.length("list") + "个值");
+    }
+
+    @Test
+    void testRedisSet() {
+        if (redisUtils.hasKey("set")) {
+            redisUtils.remove("set");
+        }
+        if (redisUtils.hasKey("adc")) {
+            redisUtils.remove("adc");
+        }
+        log.info("存入set!");
+        Set<String> set = new HashSet<>();
+        set.add("Faker");
+        set.add("Rookie");
+        set.add("Knight");
+        redisUtils.sAdd("set", set);
+        log.info("现在set共有：" + redisUtils.sMembers("set"));
+        log.info("现在set共有" + redisUtils.sSize("set") + "个值");
+        Set<String> set1 = new HashSet<>();
+        set1.add("Faker");
+        set1.add("Uzi");
+        redisUtils.sAdd("adc", set1);
+        log.info("现在set 'adc'共有：" + redisUtils.sMembers("adc"));
+        log.info("两个set交集为：" + JSON.toJSONString(redisUtils.sIntersectAndStore("set", "adc")));
+    }
+
+    @Test
+    void testRedisZSet() {
+        if (redisUtils.hasKey("zSet")) {
+            redisUtils.remove("zSet");
+        }
+        if (redisUtils.hasKey("adc")) {
+            redisUtils.remove("adc");
+        }
+        log.info("存入zSet!");
+        redisUtils.zAdd("zSet", "Faker", 10.0);
+        redisUtils.zAdd("zSet", "Rookie", 8.0);
+        redisUtils.zAdd("zSet", "Knight", 9.0);
+        log.info("现在Knight排第" + (redisUtils.zRank("zSet", "Knight") + 1) + "名！");
     }
 }
