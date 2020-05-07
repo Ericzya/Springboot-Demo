@@ -320,17 +320,6 @@ public class RedisUtils {
     }
 
     /**
-     * 验证指定 key 下 有没有指定的 hashkey
-     *
-     * @param key
-     * @param hashKey
-     * @return
-     */
-    public boolean hashKey(String key, String hashKey) {
-        return redisTemplate.opsForHash().hasKey(key, hashKey);
-    }
-
-    /**
      * 获取指定key的值string
      *
      * @param key1 键
@@ -339,6 +328,17 @@ public class RedisUtils {
      */
     public String getMapString(String key1, String key2) {
         return redisTemplate.opsForHash().get(key1, key2).toString();
+    }
+
+    /**
+     * 验证指定 key 下 有没有指定的 hashkey
+     *
+     * @param key
+     * @param hashKey
+     * @return
+     */
+    public boolean hashKey(String key, String hashKey) {
+        return redisTemplate.opsForHash().hasKey(key, hashKey);
     }
 
     /**
@@ -421,6 +421,17 @@ public class RedisUtils {
     }
 
     /**
+     * 在变量右边添加元素值
+     *
+     * @param key
+     * @param value
+     * @return
+     */
+    public void rightPush(String key, Object value) {
+        redisTemplate.opsForList().rightPush(key, value);
+    }
+
+    /**
      * 获取集合指定位置的值。
      *
      * @param key
@@ -428,7 +439,7 @@ public class RedisUtils {
      * @return
      */
     public Object index(String key, long index) {
-        return redisTemplate.opsForList().index("list", 1);
+        return redisTemplate.opsForList().index("list", index);
     }
 
     /**
@@ -444,7 +455,7 @@ public class RedisUtils {
     }
 
     /**
-     * 把最后一个参数值放到指定集合的第一个出现中间参数的前面，
+     * 把最后一个参数值放到指定集合的第一个出现传值参数的前面，
      * 如果中间参数值存在的话。
      *
      * @param key
@@ -452,7 +463,7 @@ public class RedisUtils {
      * @param value
      * @return
      */
-    public void leftPush(String key, String pivot, String value) {
+    public void leftPush(String key, Object pivot, Object value) {
         redisTemplate.opsForList().leftPush(key, pivot, value);
     }
 
@@ -465,6 +476,32 @@ public class RedisUtils {
      */
     public void leftPushAll(String key, String... values) {
         redisTemplate.opsForList().leftPushAll(key, values);
+    }
+
+    /**
+     * 向左边批量添加参数元素。
+     *
+     * @param key
+     * @param values
+     * @return
+     */
+    public void leftPushAll(String key, Integer... values) {
+        redisTemplate.opsForList().leftPushAll(key, values);
+    }
+
+    /**
+     * 向左边批量添加参数元素。
+     *
+     * @param key
+     * @param list
+     * @return
+     */
+    public void leftPushAll(String key, List<Integer> list) {
+        if (list != null) {
+            list.forEach(v -> {
+                redisTemplate.opsForList().rightPush(key, v);
+            });
+        }
     }
 
     /**
@@ -501,14 +538,16 @@ public class RedisUtils {
     }
 
     /**
-     * 向已存在的集合中添加元素。
+     * 获取list长度
      *
      * @param key
      * @return
      */
-    public long listLength(String key) {
+    public long length(String key) {
         return redisTemplate.opsForList().size(key);
     }
+
+    //------------------------------set ?---------------------------------------
 
     /**
      * 移除集合中的左边第一个元素。

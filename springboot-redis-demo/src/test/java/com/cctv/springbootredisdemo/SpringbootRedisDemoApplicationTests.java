@@ -46,7 +46,7 @@ class SpringbootRedisDemoApplicationTests {
 
     @Test
     void testRedisAddHash() {
-        if(redisUtils.hasKey("hash")){
+        if (redisUtils.hasKey("hash")) {
             redisUtils.remove("hash");
         }
         log.info("存入hash!");
@@ -62,7 +62,7 @@ class SpringbootRedisDemoApplicationTests {
 
     @Test
     void testRedisAddList() {
-        if(redisUtils.hasKey("list")){
+        if (redisUtils.hasKey("list")) {
             redisUtils.remove("list");
         }
         log.info("存入list!");
@@ -70,9 +70,18 @@ class SpringbootRedisDemoApplicationTests {
         list.add(1);
         list.add(3);
         list.add(4);
-        redisUtils.set("list", list);
-
-
+        redisUtils.leftPushAll("list", list);
+        log.info("存入list的值为：" + JSON.toJSONString(redisUtils.range("list", 0, -1)));
+        log.info("在最左加入值0：");
+        redisUtils.leftPush("list", 0);
+        log.info("现在list的值为：" + JSON.toJSONString(redisUtils.range("list", 0, -1)));
+        log.info("在最右加入值5：");
+        redisUtils.rightPush("list", 5);
+        log.info("现在list的值为：" + JSON.toJSONString(redisUtils.range("list", 0, -1)));
+        log.info("在3前加入值2：");
+        redisUtils.leftPush("list", 3, 2);
+        log.info("现在list的值为：" + JSON.toJSONString(redisUtils.range("list", 0, -1)));
+        log.info("获取第四个值：" + redisUtils.index("list", 3));
+        log.info("现在list共有" + redisUtils.length("list") + "个值");
     }
-
 }
