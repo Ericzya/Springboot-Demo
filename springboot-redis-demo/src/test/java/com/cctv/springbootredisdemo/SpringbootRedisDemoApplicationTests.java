@@ -3,6 +3,7 @@ package com.cctv.springbootredisdemo;
 import com.alibaba.fastjson.JSON;
 import com.cctv.springbootredisdemo.config.redis.RedisUtils;
 import com.cctv.springbootredisdemo.persistent.po.manager.Manager;
+import com.cctv.springbootredisdemo.service.svc.HotTopicService;
 import com.cctv.springbootredisdemo.service.svc.ManagerService;
 import com.cctv.springbootredisdemo.service.svc.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +20,14 @@ class SpringbootRedisDemoApplicationTests {
     private ManagerService managerService;
     private UserService userService;
     private RedisUtils redisUtils;
+    private HotTopicService hotTopicService;
 
-    @Autowired(required = false)
-    public SpringbootRedisDemoApplicationTests(ManagerService managerService, UserService userService, RedisUtils redisUtils) {
+    @Autowired
+    public SpringbootRedisDemoApplicationTests(ManagerService managerService, UserService userService, RedisUtils redisUtils, HotTopicService hotTopicService) {
         this.managerService = managerService;
         this.userService = userService;
         this.redisUtils = redisUtils;
+        this.hotTopicService = hotTopicService;
     }
 
     @Test
@@ -133,4 +136,25 @@ class SpringbootRedisDemoApplicationTests {
         redisUtils.zAdd("zSet", "Knight", 9.0);
         log.info("现在Knight排第" + (redisUtils.zRank("zSet", "Knight") + 1) + "名！");
     }
+
+    @Test
+    void testCacheBreakDown() {
+        //需要在redis中加入key为ImSoHot的String值
+        log.info(hotTopicService.getHotTopic());
+        HotTopicTestThread thread = new HotTopicTestThread();
+        for (int i = 0; i < 999; i++) {
+            thread.run();
+            if (i % 25 == 0) {
+                redisUtils.remove("ImSoHot");
+            }
+        }
+    }
+
+    class HotTopicTestThread implements Runnable {
+        @Override
+        public void run() {
+            log.info(hotTopicService.getHotTopic());
+        }
+    }
+
 }

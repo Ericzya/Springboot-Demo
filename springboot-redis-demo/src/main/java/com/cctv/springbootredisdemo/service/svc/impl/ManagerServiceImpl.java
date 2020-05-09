@@ -1,10 +1,11 @@
-package com.cctv.springbootredisdemo.service.svc;
+package com.cctv.springbootredisdemo.service.svc.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.cctv.springbootredisdemo.config.redis.RedisUtils;
 import com.cctv.springbootredisdemo.persistent.pl.manager.ManagerDAO;
 import com.cctv.springbootredisdemo.persistent.po.manager.Manager;
 import com.cctv.springbootredisdemo.service.enums.RedisDataStatusEnum;
+import com.cctv.springbootredisdemo.service.svc.ManagerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
