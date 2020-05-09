@@ -1,7 +1,8 @@
-package com.cctv.springbootredisdemo.service.svc;
+package com.cctv.springbootredisdemo.service.svc.impl;
 
 import com.cctv.springbootredisdemo.persistent.pl.user.UserDAO;
 import com.cctv.springbootredisdemo.persistent.po.user.User;
+import com.cctv.springbootredisdemo.service.svc.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
