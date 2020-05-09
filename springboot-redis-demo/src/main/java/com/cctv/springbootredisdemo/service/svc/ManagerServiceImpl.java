@@ -86,7 +86,7 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    @Cacheable(value = "manager", key = "#id")
+    @Cacheable(value = "manager", key = "#id", unless = "#result == null")
     public Manager getManagerById(Integer id) {
         log.info("进入getManagerById方法！");
         return managerDAO.getManagerById(id);
