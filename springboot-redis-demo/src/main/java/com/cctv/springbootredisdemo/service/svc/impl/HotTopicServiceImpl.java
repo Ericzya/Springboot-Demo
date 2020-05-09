@@ -46,7 +46,7 @@ public class HotTopicServiceImpl implements HotTopicService {
                     redisUtils.set("ImSoHot", result);
                     log.info("重新从库中获取了数据！");
                 } else {
-                    Thread.sleep(300L);
+                    Thread.sleep(100L);
                     getHotTopic();
                 }
             } catch (InterruptedException e) {

@@ -139,8 +139,6 @@ class SpringbootRedisDemoApplicationTests {
 
     @Test
     void testCacheBreakDown() {
-        //需要在redis中加入key为ImSoHot的String值
-        log.info(hotTopicService.getHotTopic());
         HotTopicTestThread thread = new HotTopicTestThread();
         for (int i = 0; i < 999; i++) {
             thread.run();
