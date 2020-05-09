@@ -67,20 +67,19 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     @CachePut(value = "manager", key = "#manager.id")
-    public int insertManager(Manager manager) {
+    public Manager insertManager(Manager manager) {
         log.info("进入insertManager方法！");
-        return managerDAO.insertManager(manager);
+        managerDAO.insertManager(manager);
+        return manager;
     }
 
     @Override
-    @Cacheable(value = "manager", key = "#email")
     public Manager getManagerByEmail(String email) {
         log.info("进入getManagerByEmail方法！");
         return managerDAO.getManagerByEmail(email);
     }
 
     @Override
-    @CacheEvict(value = "manager", key = "#email")
     public void deleteManagerByEmail(String email) {
         log.info("进入deleteManagerByEmail方法！");
         managerDAO.deleteManagerByEmail(email);

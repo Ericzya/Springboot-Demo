@@ -43,7 +43,7 @@ class SpringbootRedisDemoApplicationTests {
         manager = managerService.getManagerById(manager.getId());
         log.info("获取manager:" + manager.toString());
         log.info("再次获取manager:" + managerService.getManagerById(manager.getId()));
-        managerService.deleteManagerByEmail("2@outlook.com");
+        managerService.deleteManagerById(manager.getId());
         log.info("获取manager:" + managerService.getManagerById(manager.getId()));
     }
 

@@ -22,7 +22,7 @@ public interface ManagerService {
      * @param manager
      * @return
      */
-    int insertManager(Manager manager);
+    Manager insertManager(Manager manager);
 
     /**
      * 根据邮箱获取管理员
