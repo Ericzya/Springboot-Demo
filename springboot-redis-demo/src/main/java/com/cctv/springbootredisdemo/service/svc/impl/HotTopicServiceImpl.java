@@ -21,9 +21,9 @@ import java.util.concurrent.locks.ReentrantLock;
 @Slf4j
 public class HotTopicServiceImpl implements HotTopicService {
 
-    private static final Lock reentrantLock = new ReentrantLock();
+    private static final Lock REENTRANT_LOCK = new ReentrantLock();
 
-    private RedisUtils redisUtils;
+    private final RedisUtils redisUtils;
 
     private Integer count = 0;
 
@@ -39,7 +39,7 @@ public class HotTopicServiceImpl implements HotTopicService {
         if (Strings.isBlank(result)) {
             log.info("这是第" + count + "次去库中查数据！");
             try {
-                if (reentrantLock.tryLock()) {
+                if (REENTRANT_LOCK.tryLock()) {
                     //假装去库里查数据
                     count++;
                     result = "Hot Dam";

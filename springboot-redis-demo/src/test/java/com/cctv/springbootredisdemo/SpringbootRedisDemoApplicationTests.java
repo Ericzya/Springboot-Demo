@@ -17,10 +17,10 @@ import java.util.*;
 @Slf4j
 class SpringbootRedisDemoApplicationTests {
 
-    private ManagerService managerService;
-    private UserService userService;
-    private RedisUtils redisUtils;
-    private HotTopicService hotTopicService;
+    private final ManagerService managerService;
+    private final UserService userService;
+    private final RedisUtils redisUtils;
+    private final HotTopicService hotTopicService;
 
     @Autowired
     public SpringbootRedisDemoApplicationTests(ManagerService managerService, UserService userService, RedisUtils redisUtils, HotTopicService hotTopicService) {
