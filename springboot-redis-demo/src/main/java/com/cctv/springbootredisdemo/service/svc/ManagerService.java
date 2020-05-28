@@ -19,38 +19,38 @@ public interface ManagerService {
     /**
      * 插入管理员
      *
-     * @param manager
-     * @return
+     * @param manager 管理员实体
+     * @return 管理员实体
      */
     Manager insertManager(Manager manager);
 
     /**
      * 根据邮箱获取管理员
      *
-     * @param email
-     * @return
+     * @param email 管理员邮箱
+     * @return 管理员实体
      */
     Manager getManagerByEmail(String email);
 
     /**
      * 根据邮箱删除管理员
      *
-     * @param email
+     * @param email 管理员邮箱
      */
     void deleteManagerByEmail(String email);
 
     /**
      * 根据id获取管理员
      *
-     * @param id
-     * @return
+     * @param id 管理员id
+     * @return 管理员实体
      */
     Manager getManagerById(Integer id);
 
     /**
      * 根据id删除管理员
      *
-     * @param id
+     * @param id 管理员id
      */
     void deleteManagerById(Integer id);
 }
