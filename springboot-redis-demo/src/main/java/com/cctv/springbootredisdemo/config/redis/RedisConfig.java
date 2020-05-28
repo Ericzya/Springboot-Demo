@@ -60,7 +60,7 @@ public class RedisConfig extends CachingConfigurerSupport {
             RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         ///ObjectMapper 这段代码能够保证正常的反序列化。设置fastjson时，会报Object无法匹配实体类，反序列化有问题，因此只能使用jackson2
-        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
         ObjectMapper om = new ObjectMapper();
         om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         jackson2JsonRedisSerializer.setObjectMapper(om);
@@ -84,7 +84,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     /**
      * 自定义生成redis-key, 当@Cacheable指定key时，则不使用该生成方式
      *
-     * @return
+     * @return KeyGenerator
      */
     @Bean
     @Override
