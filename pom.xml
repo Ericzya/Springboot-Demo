@@ -19,7 +19,7 @@
     <modules>
         <module>springboot-multiple-data-source-demo-different-package</module>
         <module>springboot-multiple-data-source-demo-aop-switch-datasource</module>
-        <module>springboot-springsecurity-demo</module>
+        <module>springboot-spring-security-demo</module>
         <module>springboot-redis-demo</module>
     </modules>
 
@@ -28,23 +28,5 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
-
-    <dependencies>
-        <!--springboot依赖,此处注释是因为parent中继承的祖先中已经有了，并且一般dependencyManagement管理的依赖都要写版本号-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-web</artifactId>-->
-<!--        </dependency>-->
-    </dependencies>
-
-    <!--该插件作用是打一个可运行的包，必须要写在需要打包的项目里。这里的父模块不需要打包运行，所以删掉该插件。-->
-    <!--    <build>-->
-    <!--        <plugins>-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.springframework.boot</groupId>-->
-    <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-    <!--            </plugin>-->
-    <!--        </plugins>-->
-    <!--    </build>-->
 
 </project>

@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>springboot-multiple-data-source-different-package</artifactId>
+    <artifactId>springboot-multiple-data-source-demo-different-package</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-multiple-data-source-different-package</name>
+    <name>springboot-multiple-data-source-demo-different-package</name>
     <description>Multiple Datasource Demo project for Spring Boot</description>
     <packaging>pom</packaging>
 
