@@ -22,9 +22,9 @@ import java.io.IOException;
  */
 @Component
 public class SecurityAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
-    private VisitorService visitorService;
+    private final VisitorService visitorService;
 
-    private RequestCache requestCache = new HttpSessionRequestCache();
+    private final RequestCache requestCache = new HttpSessionRequestCache();
 
     public SecurityAuthenticationSuccessHandler(VisitorService visitorService) {
         this.visitorService = visitorService;
