@@ -151,7 +151,7 @@ class SpringbootRedisDemoApplicationTests {
     class HotTopicTestThread implements Runnable {
         @Override
         public void run() {
-            log.info(hotTopicService.getHotTopic());
+            hotTopicService.getHotTopic();
         }
     }
 
