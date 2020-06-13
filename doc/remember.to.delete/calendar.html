@@ -369,7 +369,7 @@
     //show layer
     function showDiv(targetObj) {
         let idStr = targetObj.target.id;
-        if (idStr == null) {
+        if (!ifContains(planCache, idStr)) {
             return;
         }
         let strArr = idStr.split("-");
@@ -382,7 +382,7 @@
         if (obj.tagName.toLowerCase() == "td") {
             obj.style.cursor = "hand";
             pos = getPos(obj);
-            //caculate mid layer position
+            //calculate mid layer position
             oDiv.style.width = obj.offsetWidth;
             oDiv.style.height = obj.offsetHeight;
             oDiv.style.top = pos[0];
@@ -410,8 +410,17 @@
         hideDiv();
         //reset all scheduled cells' color
         for (let item of planCache) {
-            document.getElementById(item).style.backgroundColor="#9BB3DA";
+            document.getElementById(item).style.backgroundColor = "#9BB3DA";
         }
+    }
+
+    //judge if a value exists in an array
+    function ifContains(arr, val) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == val)
+                return true;
+        }
+        return false;
     }
 </script>
 <body onload="init()">
