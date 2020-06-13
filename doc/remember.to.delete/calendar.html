@@ -211,7 +211,7 @@
                 for (let i = 1; i < oTable.rows.length; i++) {
                     for (let j = 1; j < oTable.rows[i].cells.length - 1; j++) {
                         pos = getPos(oTable.rows[i].cells[j]);
-                        //caculate the mouse's position
+                        //calculate the mouse's position
                         if (event.x > pos[1] && event.x < pos[1] + oTable.rows[i].cells[j].offsetWidth
                             && event.y > pos[0] && event.y < pos[0] + oTable.rows[i].cells[j].offsetHeight) {
                             //switch text
