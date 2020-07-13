@@ -25,7 +25,7 @@ class LoginControllerTest {
     @Test
     void jetBrainCrack() {
         long max = 100000000L;
-        String str = "肇牵车牛远服贾";
+        String str = "文和";
         for (long i = 1; i <= max; i++) {
             str = MD5(str);
             if (i % 1000 == 0) {
