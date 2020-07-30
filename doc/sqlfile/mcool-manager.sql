@@ -36,6 +36,6 @@ CREATE TABLE `manager` (
 -- ----------------------------
 -- Records of manager
 -- ----------------------------
-INSERT INTO `manager` VALUES ('001', 'Eric', NULL, NULL, 'M', '112233', 'ericzya@outlook.com');
+INSERT INTO `manager` VALUES (null,'001', 'Eric', NULL, NULL, 'M', '112233', 'ericzya@outlook.com');
 
 SET FOREIGN_KEY_CHECKS = 1;
