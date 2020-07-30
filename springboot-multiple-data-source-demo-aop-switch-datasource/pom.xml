@@ -11,7 +11,7 @@
     <groupId>com.cctv</groupId>
     <artifactId>springboot-multiple-data-source-demo-aop-switch-datasource</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-multiple-data-source-different-package</name>
+    <name>springboot-multiple-data-source-demo-aop-switch-datasource</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
