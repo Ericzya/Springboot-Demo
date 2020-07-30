@@ -16,7 +16,7 @@
 
     <!-- Log file debug output -->
     <appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>d:/logs/debug.log</file>
+        <file>e:/logs/debug.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>d:/logs/debug.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
             <maxFileSize>50MB</maxFileSize>
@@ -29,7 +29,7 @@
 
     <!-- Log file error output -->
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>d:/mcool/error.log</file>
+        <file>e:/logs/error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>d:/mcool/error.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
             <maxFileSize>50MB</maxFileSize>

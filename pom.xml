@@ -17,10 +17,13 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>springboot-model</module>
         <module>springboot-multiple-data-source-demo-different-package</module>
         <module>springboot-multiple-data-source-demo-aop-switch-datasource</module>
         <module>springboot-spring-security-demo</module>
         <module>springboot-redis-demo</module>
+        <module>springboot-dao</module>
+        <module>springboot-service</module>
     </modules>
 
     <properties>
