@@ -1,5 +1,7 @@
-package manager;
+package com.cctv.springbootdemo.service.manager;
 
+import com.cctv.springbootdemo.dao.manager.ManagerDAO;
+import com.cctv.springbootdemo.model.manager.Manager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

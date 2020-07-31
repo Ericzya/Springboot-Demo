@@ -1,5 +1,7 @@
-package user;
+package com.cctv.springbootdemo.service.user;
 
+import com.cctv.springbootdemo.dao.user.UserDAO;
+import com.cctv.springbootdemo.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

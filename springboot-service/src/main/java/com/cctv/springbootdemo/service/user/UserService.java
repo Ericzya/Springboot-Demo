@@ -1,4 +1,6 @@
-package user;
+package com.cctv.springbootdemo.service.user;
+
+import com.cctv.springbootdemo.model.user.User;
 
 /**
  * @Author: Eric.Zhang
