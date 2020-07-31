@@ -1,5 +1,7 @@
 package com.cctv.springbootdemo.service.user;
 
+import com.cctv.springbootdemo.aopswitch.config.aop.annotation.DataSourceAnnotation;
+import com.cctv.springbootdemo.aopswitch.config.enums.DataSourceEnum;
 import com.cctv.springbootdemo.dao.user.UserDAO;
 import com.cctv.springbootdemo.model.po.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +23,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @DataSourceAnnotation(DataSourceEnum.DB_User)
     public User getUserByEmail(String userEmail) {
         return userDAO.getUserByEmail(userEmail);
     }
 
     @Override
+    @DataSourceAnnotation(DataSourceEnum.DB_User)
     public boolean loginCheck(String userEmail, String inputPassword) {
         User targetUser=userDAO.getUserByEmail(userEmail);
         return targetUser != null && targetUser.getAccountPassword().equals(inputPassword);

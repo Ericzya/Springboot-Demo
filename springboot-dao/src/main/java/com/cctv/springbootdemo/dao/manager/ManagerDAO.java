@@ -1,6 +1,6 @@
 package com.cctv.springbootdemo.dao.manager;
 
-import com.cctv.springbootdemo.model.manager.Manager;
+import com.cctv.springbootdemo.model.po.manager.Manager;
 
 import java.util.List;
 
@@ -22,10 +22,10 @@ public interface ManagerDAO {
     /**
      * 删除管理员
      *
-     * @param managerAccount 管理员账号
+     * @param managerEmail 管理员邮箱
      * @return 是否成功
      */
-    boolean deleteManagerByAccountId(String managerAccount);
+    boolean deleteManagerByEmail(String managerEmail);
 
     /**
      * 更新管理员信息
@@ -42,11 +42,4 @@ public interface ManagerDAO {
      * @return Manager 对应管理员
      */
     Manager getManagerByEmail(String emailAddress);
-
-    /**
-     * 获取管理员列表
-     *
-     * @return Manager 对应管理员
-     */
-    List<Manager> getManagerList();
 }

@@ -1,6 +1,6 @@
 package com.cctv.springbootdemo.dao.user;
 
-import com.cctv.springbootdemo.model.user.User;
+import com.cctv.springbootdemo.model.po.user.User;
 
 /**
  * @Author: Eric.Zhang

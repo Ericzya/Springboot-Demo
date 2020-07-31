@@ -1,7 +1,7 @@
 package com.cctv.springbootdemo.service.manager;
 
 import com.cctv.springbootdemo.dao.manager.ManagerDAO;
-import com.cctv.springbootdemo.model.manager.Manager;
+import com.cctv.springbootdemo.model.po.manager.Manager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +23,11 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public Manager getManagerByEmail(String managerEmail) {
         return managerDAO.getManagerByEmail(managerEmail);
+    }
+
+    @Override
+    public boolean loginCheck(String managerEmail, String inputPassword) {
+        Manager targetManager = managerDAO.getManagerByEmail(managerEmail);
+        return targetManager != null && targetManager.getAccountPassword().equals(inputPassword);
     }
 }

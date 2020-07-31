@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cctv.springbootdemo.dao.manager.ManagerDAO">
-    <resultMap id="ManagerResultMap" type="com.cctv.">
+    <resultMap id="ManagerResultMap" type="com.cctv.springbootdemo.model.po.manager.Manager">
         <id column="ManagerID" property="managerId" jdbcType="VARCHAR"/>
         <result column="ManagerName" property="managerName" jdbcType="VARCHAR"/>
         <result column="ManagerPower" property="managerPower" jdbcType="VARCHAR"/>
@@ -18,14 +18,14 @@
     <select id="getManagerByEmail" parameterType="string" resultMap="ManagerResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM com.cctv.springbootdemo.model.manager
+        FROM manager
         WHERE EmailAddress= #{emailAddress}
     </select>
 
     <insert id="insertManager"
-            parameterType="com.cctv.springbootmultipledatasourcedemoaop.persistent.com.cctv.springbootdemo.model.manager.po.Manager">
+            parameterType="com.cctv.springbootdemo.model.po.manager.Manager">
         INSERT INTO
-        com.cctv.springbootdemo.model.manager
+        manager
         <trim prefix="(" suffix=")" suffixOverrides=",">
             managerId,managerName,
             <if test="managerPower!=null">
@@ -52,7 +52,7 @@
     </insert>
 
     <update id="updateManager"
-            parameterType="com.cctv.springbootmultipledatasourcedemoaop.persistent.com.cctv.springbootdemo.model.manager.po.Manager">
+            parameterType="com.cctv.springbootdemo.model.po.manager.Manager">
         UPDATE Manager SET managerName=#{managerName},managerPower=#{managerPower},managerPosition=#{managerPosition},managerSexuality=#{managerSexuality},accountPassword=#{accountPassword},emailAddress=#{emailAddress} WHERE managerId=#{managerId}
     </update>
 
