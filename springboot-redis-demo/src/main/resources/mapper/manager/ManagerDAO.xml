@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cctv.springbootredisdemo.persistent.pl.manager.ManagerDAO">
-    <resultMap id="ManagerResultMap" type="com.cctv.springbootredisdemo.persistent.po.manager.Manager">
+<mapper namespace="com.cctv.springbootredisdemo.persistent.pl.com.cctv.springbootdemo.dao.manager.ManagerDAO">
+    <resultMap id="ManagerResultMap" type="com.cctv.springbootredisdemo.persistent.po.com.cctv.springbootdemo.model.manager.Manager">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="ManagerID" property="managerId" jdbcType="VARCHAR"/>
         <result column="ManagerName" property="managerName" jdbcType="VARCHAR"/>
@@ -16,9 +16,9 @@
         id,ManagerID,ManagerName,ManagerPower,ManagerPosition,ManagerSexuality,AccountPassword,EmailAddress
     </sql>
 
-    <insert id="insertManager" parameterType="com.cctv.springbootredisdemo.persistent.po.manager.Manager"
+    <insert id="insertManager" parameterType="com.cctv.springbootredisdemo.persistent.po.com.cctv.springbootdemo.model.manager.Manager"
             useGeneratedKeys="true" keyProperty="entity.id">
-        insert into manager
+        insert into com.cctv.springbootdemo.model.manager
         <trim suffixOverrides="," prefix="(" suffix=")">
             <if test="entity.managerId!=null">
                 ManagerID,
@@ -72,24 +72,24 @@
     <select id="getManagerByEmail" parameterType="String" resultMap="ManagerResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM manager
+        FROM com.cctv.springbootdemo.model.manager
         WHERE EmailAddress= #{emailAddress}
     </select>
 
     <select id="getManagerById" parameterType="Integer" resultMap="ManagerResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM manager
+        FROM com.cctv.springbootdemo.model.manager
         WHERE id= #{id}
     </select>
 
     <delete id="deleteManagerByEmail">
-        DELETE FROM manager
+        DELETE FROM com.cctv.springbootdemo.model.manager
         WHERE EmailAddress= #{email}
     </delete>
 
     <delete id="deleteManagerById">
-        DELETE FROM manager
+        DELETE FROM com.cctv.springbootdemo.model.manager
         WHERE id= #{id}
     </delete>
 </mapper>

@@ -1,5 +1,4 @@
-package com.cctv.springbootspringsecuritydemo.config.mybatis;
-
+package com.cctv.springbootdemo.config.mybatis;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -16,24 +15,26 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 /**
- * @Author: Eric
- * @Date: 2020/1/27 15:39
+ * @Author: Eric.Zhang
+ * @Description: MybatisConfigUser类
+ * @ProjectName: springboot-demo
+ * @Date: 2020/7/30 17:25
  */
 @Configuration
-@MapperScan(basePackages = "com.cctv.springbootspringsecuritydemo.persistent.com.cctv.springbootdemo.model.user", sqlSessionTemplateRef = "userSqlSessionTemplate")
-public class MybatisUserConfig {
+@MapperScan(basePackages = "com.cctv.springbootdemo.dao.user", sqlSessionTemplateRef = "userSqlSessionTemplate")
+public class MybatisConfigUser {
     @Bean(name = "userDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.com.cctv.springbootdemo.model.user")
+    @ConfigurationProperties(prefix = "spring.datasource.user")
     public DataSource customDataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "userSqlSessionFactory")
     public SqlSessionFactory customSqlSessionFactory(@Qualifier("userDataSource") DataSource dataSource) throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/com.cctv.springbootdemo.model.user/*.xml"));
-        return sqlSessionFactoryBean.getObject();
+        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+        bean.setDataSource(dataSource);
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/user/*.xml"));
+        return bean.getObject();
     }
 
     @Bean(name = "userTransactionManager")
@@ -42,7 +43,7 @@ public class MybatisUserConfig {
     }
 
     @Bean(name = "userSqlSessionTemplate")
-    public SqlSessionTemplate customSqlSessionTemplate(@Qualifier("userSqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
+    public SqlSessionTemplate customSqlSessionTemplate(@Qualifier("userSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }

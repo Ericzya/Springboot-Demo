@@ -109,7 +109,7 @@ tests currently *only* pass on OS X.
 ### 0.4.0 - 26th January 2013
 
 - Goals and events [#103](https://github.com/morrisjs/morris.js/issues/103).
-- Bower package manager metadata.
+- Bower package com.cctv.springbootdemo.model.manager metadata.
 - More flexible formatters [#107](https://github.com/morrisjs/morris.js/issues/107).
 - Color callbacks.
 - Decade intervals for time-axis labels.
@@ -155,7 +155,7 @@ tests currently *only* pass on OS X.
 ### 0.2.9 - 15th May 2012
 
 - Bugfix: Fix zero-value regression
-- Bugfix: Don't modify user-supplied data
+- Bugfix: Don't modify com.cctv.springbootdemo.model.user-supplied data
 
 ### 0.2.8 - 10th May 2012
 

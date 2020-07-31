@@ -1,4 +1,4 @@
-package com.cctv.springbootredisdemo.config.mybatis;
+package com.cctv.springbootdemo.config.mybatis;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -16,14 +16,16 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 /**
- * @Author: Eric
- * @Date: 2020/1/27 15:35
+ * @Author: Eric.Zhang
+ * @Description: MybatisConfigManager类
+ * @ProjectName: springboot-demo
+ * @Date: 2020/7/30 17:25
  */
 @Configuration
-@MapperScan(basePackages = "com.cctv.springbootredisdemo.persistent.pl.com.cctv.springbootdemo.model.manager", sqlSessionTemplateRef = "managerSqlSessionTemplate")
-public class MybatisManagerConfig {
+@MapperScan(basePackages = "com.cctv.springbootdemo.dao.manager", sqlSessionTemplateRef = "managerSqlSessionTemplate")
+public class MybatisConfigManager {
     @Bean(name = "managerDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.com.cctv.springbootdemo.model.manager")
+    @ConfigurationProperties(prefix = "spring.datasource.manager")
     @Primary
     public DataSource customDataSource() {
         return DataSourceBuilder.create().build();
@@ -32,10 +34,10 @@ public class MybatisManagerConfig {
     @Bean(name = "managerSqlSessionFactory")
     @Primary
     public SqlSessionFactory customSqlSessionFactory(@Qualifier("managerDataSource") DataSource dataSource) throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/com.cctv.springbootdemo.model.manager/*.xml"));
-        return sqlSessionFactoryBean.getObject();
+        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+        bean.setDataSource(dataSource);
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/manager/*.xml"));
+        return bean.getObject();
     }
 
     @Bean(name = "managerTransactionManager")

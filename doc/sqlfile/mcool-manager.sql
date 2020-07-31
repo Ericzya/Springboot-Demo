@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 80011
  Source Host           : localhost:3306
- Source Schema         : mcool-manager
+ Source Schema         : mcool-com.cctv.springbootdemo.model.manager
 
  Target Server Type    : MySQL
  Target Server Version : 80011
@@ -18,10 +18,10 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for manager
+-- Table structure for com.cctv.springbootdemo.model.manager
 -- ----------------------------
-DROP TABLE IF EXISTS `manager`;
-CREATE TABLE `manager` (
+DROP TABLE IF EXISTS `com.cctv.springbootdemo.model.manager`;
+CREATE TABLE `com.cctv.springbootdemo.model.manager` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `ManagerID` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `ManagerName` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -34,8 +34,8 @@ CREATE TABLE `manager` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
--- Records of manager
+-- Records of com.cctv.springbootdemo.model.manager
 -- ----------------------------
-INSERT INTO `manager` VALUES (null,'001', 'Eric', NULL, NULL, 'M', '112233', 'ericzya@outlook.com');
+INSERT INTO `com.cctv.springbootdemo.model.manager` VALUES (null,'001', 'Eric', NULL, NULL, 'M', '112233', 'ericzya@outlook.com');
 
 SET FOREIGN_KEY_CHECKS = 1;

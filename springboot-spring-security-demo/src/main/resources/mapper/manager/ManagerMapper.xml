@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cctv.springbootspringsecuritydemo.persistent.manager.pl.ManagerDAO">
-    <resultMap id="ManagerResultMap" type="com.cctv.springbootspringsecuritydemo.persistent.manager.po.Manager">
+<mapper namespace="com.cctv.springbootspringsecuritydemo.persistent.com.cctv.springbootdemo.model.manager.pl.ManagerDAO">
+    <resultMap id="ManagerResultMap" type="com.cctv.springbootspringsecuritydemo.persistent.com.cctv.springbootdemo.model.manager.po.Manager">
         <id column="ManagerID" property="managerId" jdbcType="VARCHAR"/>
         <result column="ManagerName" property="managerName" jdbcType="VARCHAR"/>
         <result column="ManagerPower" property="managerPower" jdbcType="VARCHAR"/>
@@ -18,7 +18,7 @@
     <select id="getManagerByEmail" parameterType="string" resultMap="ManagerResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM manager
+        FROM com.cctv.springbootdemo.model.manager
         WHERE EmailAddress= #{emailAddress}
     </select>
 

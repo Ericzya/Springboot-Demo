@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 80011
  Source Host           : localhost:3306
- Source Schema         : mcool-user
+ Source Schema         : mcool-com.cctv.springbootdemo.model.user
 
  Target Server Type    : MySQL
  Target Server Version : 80011
@@ -18,10 +18,10 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for com.cctv.springbootdemo.model.user
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`  (
+DROP TABLE IF EXISTS `com.cctv.springbootdemo.model.user`;
+CREATE TABLE `com.cctv.springbootdemo.model.user`  (
   `UserAccount` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `UserName` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `UserSexuality` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
@@ -32,8 +32,8 @@ CREATE TABLE `user`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of user
+-- Records of com.cctv.springbootdemo.model.user
 -- ----------------------------
-INSERT INTO `user` VALUES ('00001', 'Eric', 'M', '445566', 'ericzya@outlook.com', '1995-11-29');
+INSERT INTO `com.cctv.springbootdemo.model.user` VALUES ('00001', 'Eric', 'M', '445566', 'ericzya@outlook.com', '1995-11-29');
 
 SET FOREIGN_KEY_CHECKS = 1;

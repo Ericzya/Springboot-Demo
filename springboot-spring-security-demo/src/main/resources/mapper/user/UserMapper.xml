@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cctv.springbootspringsecuritydemo.persistent.user.pl.UserDAO">
-    <resultMap id="UserResultMap" type="com.cctv.springbootspringsecuritydemo.persistent.user.po.User">
+<mapper namespace="com.cctv.springbootspringsecuritydemo.persistent.com.cctv.springbootdemo.model.user.pl.UserDAO">
+    <resultMap id="UserResultMap" type="com.cctv.springbootspringsecuritydemo.persistent.com.cctv.springbootdemo.model.user.po.User">
         <id column="UserAccount" property="userId" jdbcType="VARCHAR"/>
         <result column="UserName" property="userName" jdbcType="VARCHAR"/>
         <result column="UserSexuality" property="userSexuality" jdbcType="VARCHAR"/>
@@ -17,7 +17,7 @@
     <select id="getUserByEmail" parameterType="string" resultMap="UserResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM user
+        FROM com.cctv.springbootdemo.model.user
         WHERE UserEmail= #{emailAddress}
     </select>
 

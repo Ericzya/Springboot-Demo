@@ -20,10 +20,10 @@ import javax.sql.DataSource;
  * @Date: 2020/1/27 15:39
  */
 @Configuration
-@MapperScan(basePackages = "com.cctv.springbootredisdemo.persistent.pl.user", sqlSessionTemplateRef = "userSqlSessionTemplate")
+@MapperScan(basePackages = "com.cctv.springbootredisdemo.persistent.pl.com.cctv.springbootdemo.model.user", sqlSessionTemplateRef = "userSqlSessionTemplate")
 public class MybatisUserConfig {
     @Bean(name = "userDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.user")
+    @ConfigurationProperties(prefix = "spring.datasource.com.cctv.springbootdemo.model.user")
     public DataSource customDataSource() {
         return DataSourceBuilder.create().build();
     }
@@ -32,7 +32,7 @@ public class MybatisUserConfig {
     public SqlSessionFactory customSqlSessionFactory(@Qualifier("userDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/user/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/com.cctv.springbootdemo.model.user/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 

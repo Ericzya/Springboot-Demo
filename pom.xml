@@ -25,6 +25,7 @@
         <module>springboot-dao</module>
         <module>springboot-service</module>
         <module>springboot-utils</module>
+        <module>springboot-demo-different-package</module>
     </modules>
 
     <properties>

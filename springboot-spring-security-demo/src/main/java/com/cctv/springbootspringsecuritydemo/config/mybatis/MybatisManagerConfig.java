@@ -19,10 +19,10 @@ import javax.sql.DataSource;
  * @Date: 2020/1/27 15:35
  */
 @Configuration
-@MapperScan(basePackages = "com.cctv.springbootspringsecuritydemo.persistent.manager", sqlSessionTemplateRef = "managerSqlSessionTemplate")
+@MapperScan(basePackages = "com.cctv.springbootspringsecuritydemo.persistent.com.cctv.springbootdemo.model.manager", sqlSessionTemplateRef = "managerSqlSessionTemplate")
 public class MybatisManagerConfig {
     @Bean(name = "managerDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.manager")
+    @ConfigurationProperties(prefix = "spring.datasource.com.cctv.springbootdemo.model.manager")
     @Primary
     public DataSource customDataSource() {
         return DataSourceBuilder.create().build();
@@ -33,7 +33,7 @@ public class MybatisManagerConfig {
     public SqlSessionFactory customSqlSessionFactory(@Qualifier("managerDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/manager/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/com.cctv.springbootdemo.model.manager/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 

@@ -111,7 +111,7 @@ function cloneCopyEvent( src, dest ) {
 		}
 	}
 
-	// 2. Copy user data
+	// 2. Copy com.cctv.springbootdemo.model.user data
 	if ( data_user.hasData( src ) ) {
 		udataOld = data_user.access( src );
 		udataCur = jQuery.extend( {}, udataOld );
@@ -300,7 +300,7 @@ jQuery.extend({
 					}
 				}
 			}
-			// Discard any remaining `user` data
+			// Discard any remaining `com.cctv.springbootdemo.model.user` data
 			delete data_user.cache[ elem[ data_user.expando ] ];
 		}
 	}

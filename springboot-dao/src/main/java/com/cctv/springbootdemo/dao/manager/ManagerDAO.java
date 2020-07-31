@@ -2,8 +2,6 @@ package com.cctv.springbootdemo.dao.manager;
 
 import com.cctv.springbootdemo.model.po.manager.Manager;
 
-import java.util.List;
-
 /**
  * @Author: Eric.Zhang
  * @Description: ManagerDAO类
