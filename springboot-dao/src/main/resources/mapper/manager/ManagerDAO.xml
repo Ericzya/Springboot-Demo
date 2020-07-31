@@ -60,5 +60,17 @@
         DELETE FROM Manager WHERE EmailAddress=#{emailAddress}
     </delete>
 
+    <select id="getManagerById" parameterType="Integer" resultMap="ManagerResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM Manager
+        WHERE id= #{id}
+    </select>
+
+    <delete id="deleteManagerById">
+        DELETE FROM com.cctv.springbootdemo.model.manager
+        WHERE id= #{id}
+    </delete>
+
 
 </mapper>

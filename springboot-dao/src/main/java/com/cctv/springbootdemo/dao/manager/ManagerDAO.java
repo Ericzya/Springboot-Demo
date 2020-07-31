@@ -40,4 +40,20 @@ public interface ManagerDAO {
      * @return Manager 对应管理员
      */
     Manager getManagerByEmail(String emailAddress);
+
+    /**
+     * login check
+     *
+     * @param id 管理员id
+     * @return Manager 对应管理员
+     */
+    Manager getManagerById(Integer id);
+
+    /**
+     * 删除管理员
+     *
+     * @param id 管理员id
+     * @return 是否成功
+     */
+    boolean deleteManagerById(Integer id);
 }

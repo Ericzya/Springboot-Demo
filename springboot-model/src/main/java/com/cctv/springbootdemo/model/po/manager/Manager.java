@@ -10,7 +10,7 @@ public class Manager {
     /**
      * 管理员账号
      */
-    private String managerId;
+    private Integer managerId;
     /**
      * 管理员名称
      */
@@ -49,11 +49,24 @@ public class Manager {
                 '}';
     }
 
-    public String getManagerId() {
+    public Manager() {
+    }
+
+    public Manager(Integer managerId, String managerName, String managerPower, String managerPosition, String managerSexuality, String accountPassword, String emailAddress) {
+        this.managerId = managerId;
+        this.managerName = managerName;
+        this.managerPower = managerPower;
+        this.managerPosition = managerPosition;
+        this.managerSexuality = managerSexuality;
+        this.accountPassword = accountPassword;
+        this.emailAddress = emailAddress;
+    }
+
+    public Integer getManagerId() {
         return managerId;
     }
 
-    public void setManagerId(String managerId) {
+    public void setManagerId(Integer managerId) {
         this.managerId = managerId;
     }
 

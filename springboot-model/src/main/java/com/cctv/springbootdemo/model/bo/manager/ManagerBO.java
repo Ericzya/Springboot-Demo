@@ -12,7 +12,7 @@ public class ManagerBO {
     /**
      * 管理员账号
      */
-    private String managerId;
+    private Integer managerId;
     /**
      * 管理员名称
      */
@@ -38,7 +38,7 @@ public class ManagerBO {
      */
     private String emailAddress;
 
-    public ManagerBO(String managerId, String managerName, List<String> managerPower, String managerPosition, String managerSexuality, String accountPassword, String emailAddress) {
+    public ManagerBO(Integer managerId, String managerName, List<String> managerPower, String managerPosition, String managerSexuality, String accountPassword, String emailAddress) {
         this.managerId = managerId;
         this.managerName = managerName;
         this.managerPower = managerPower;
@@ -61,11 +61,11 @@ public class ManagerBO {
                 '}';
     }
 
-    public String getManagerId() {
+    public Integer getManagerId() {
         return managerId;
     }
 
-    public void setManagerId(String managerId) {
+    public void setManagerId(Integer managerId) {
         this.managerId = managerId;
     }
 

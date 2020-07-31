@@ -3,20 +3,10 @@ package com.cctv.springbootdemo.service.manager;
 import com.cctv.springbootdemo.model.po.manager.Manager;
 
 /**
- * @Author: Eric.Zhang
- * @Description: ManagerService
- * @ProjectName: springboot-demo
- * @Date: 2020/7/30 17:49
+ * @Author: Eric
+ * @Date: 2020/1/9 20:42
  */
 public interface ManagerService {
-    /**
-     * 通过Email获取管理员
-     *
-     * @param managerEmail  管理员邮箱
-     * @return Manager 对应管理员
-     */
-    Manager getManagerByEmail(String managerEmail);
-
     /**
      * login check
      *
@@ -33,6 +23,21 @@ public interface ManagerService {
      * @return 管理员实体
      */
     Manager insertManager(Manager manager);
+
+    /**
+     * 根据邮箱获取管理员
+     *
+     * @param email 管理员邮箱
+     * @return 管理员实体
+     */
+    Manager getManagerByEmail(String email);
+
+    /**
+     * 根据邮箱删除管理员
+     *
+     * @param email 管理员邮箱
+     */
+    void deleteManagerByEmail(String email);
 
     /**
      * 根据id获取管理员

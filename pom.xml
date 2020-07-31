@@ -18,14 +18,13 @@
 
     <modules>
         <module>springboot-model</module>
-        <module>springboot-multiple-data-source-demo-different-package</module>
         <module>springboot-demo-aop-switch-datasource</module>
         <module>springboot-spring-security-demo</module>
-        <module>springboot-redis-demo</module>
         <module>springboot-dao</module>
         <module>springboot-service</module>
         <module>springboot-utils</module>
         <module>springboot-demo-different-package</module>
+        <module>springboot-demo-redis</module>
     </modules>
 
     <properties>
