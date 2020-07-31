@@ -1,4 +1,4 @@
-package user;
+package com.cctv.springbootdemo.model.user;
 
 import java.util.Date;
 

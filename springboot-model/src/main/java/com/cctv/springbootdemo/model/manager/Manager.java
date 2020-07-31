@@ -1,4 +1,4 @@
-package manager;
+package com.cctv.springbootdemo.model.manager;
 
 /**
  * @Author: Eric.Zhang

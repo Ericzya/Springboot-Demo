@@ -1,4 +1,6 @@
-package manager;
+package com.cctv.springbootdemo.dao.manager;
+
+import com.cctv.springbootdemo.model.manager.Manager;
 
 import java.util.List;
 
