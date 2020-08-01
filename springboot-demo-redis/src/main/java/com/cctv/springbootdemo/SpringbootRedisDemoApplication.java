@@ -10,7 +10,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * @ProjectName: springboot-demo
  * @Date: 2020/7/31 18:09
  */
-@SpringBootApplication(scanBasePackages = "com.cctv.springbootdemo.dao")
+@SpringBootApplication(scanBasePackages = "com.cctv")
 @EnableCaching
 public class SpringbootRedisDemoApplication {
 

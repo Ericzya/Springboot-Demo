@@ -69,7 +69,7 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    @CachePut(value = "manager", key = "#manager.managerId")
+    @CachePut(value = "manager", key = "#manager.Id")
     public Manager insertManager(Manager manager) {
         logger.info("进入insertManager方法！");
         managerDAO.insertManager(manager);
@@ -89,16 +89,16 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    @Cacheable(value = "manager", key = "#id", unless = "#result == null")
-    public Manager getManagerById(Integer id) {
+    @Cacheable(value = "manager", key = "#Id", unless = "#result == null")
+    public Manager getManagerById(Integer Id) {
         logger.info("进入getManagerById方法！");
-        return managerDAO.getManagerById(id);
+        return managerDAO.getManagerById(Id);
     }
 
     @Override
-    @CacheEvict(value = "manager", key = "#id")
-    public void deleteManagerById(Integer id) {
+    @CacheEvict(value = "manager", key = "#Id")
+    public void deleteManagerById(Integer Id) {
         logger.info("进入deleteManagerById方法！");
-        managerDAO.deleteManagerById(id);
+        managerDAO.deleteManagerById(Id);
     }
 }

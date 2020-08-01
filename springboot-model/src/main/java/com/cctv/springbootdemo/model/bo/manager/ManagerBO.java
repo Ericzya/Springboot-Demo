@@ -10,9 +10,13 @@ import java.util.List;
  */
 public class ManagerBO {
     /**
+     * 管理员编号
+     */
+    private Integer Id;
+    /**
      * 管理员账号
      */
-    private Integer managerId;
+    private String managerId;
     /**
      * 管理员名称
      */
@@ -38,7 +42,8 @@ public class ManagerBO {
      */
     private String emailAddress;
 
-    public ManagerBO(Integer managerId, String managerName, List<String> managerPower, String managerPosition, String managerSexuality, String accountPassword, String emailAddress) {
+    public ManagerBO(Integer id, String managerId, String managerName, List<String> managerPower, String managerPosition, String managerSexuality, String accountPassword, String emailAddress) {
+        Id = id;
         this.managerId = managerId;
         this.managerName = managerName;
         this.managerPower = managerPower;
@@ -51,7 +56,8 @@ public class ManagerBO {
     @Override
     public String toString() {
         return "ManagerBO{" +
-                "managerId='" + managerId + '\'' +
+                "Id=" + Id +
+                ", managerId='" + managerId + '\'' +
                 ", managerName='" + managerName + '\'' +
                 ", managerPower=" + managerPower +
                 ", managerPosition='" + managerPosition + '\'' +
@@ -61,11 +67,19 @@ public class ManagerBO {
                 '}';
     }
 
-    public Integer getManagerId() {
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public String getManagerId() {
         return managerId;
     }
 
-    public void setManagerId(Integer managerId) {
+    public void setManagerId(String managerId) {
         this.managerId = managerId;
     }
 

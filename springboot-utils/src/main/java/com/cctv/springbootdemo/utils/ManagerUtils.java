@@ -14,10 +14,11 @@ import java.util.Arrays;
 public class ManagerUtils {
     /**
      * manager实体转BO类
+     *
      * @param manager 管理员实体类
      * @return
      */
     public ManagerBO convertManagerToManagerBO(Manager manager) {
-        return new ManagerBO(manager.getManagerId(), manager.getManagerName(), Arrays.asList(manager.getManagerPower().split(";")), manager.getManagerPosition(), manager.getManagerSexuality(), manager.getAccountPassword(), manager.getEmailAddress());
+        return new ManagerBO(manager.getId(), manager.getManagerId(), manager.getManagerName(), Arrays.asList(manager.getManagerPower().split(";")), manager.getManagerPosition(), manager.getManagerSexuality(), manager.getAccountPassword(), manager.getEmailAddress());
     }
 }

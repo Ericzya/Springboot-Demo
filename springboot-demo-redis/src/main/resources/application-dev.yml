@@ -24,7 +24,7 @@ spring:
   datasource:
     manager:
       type: com.alibaba.druid.pool.DruidDataSource
-      jdbc-url: jdbc:mysql://localhost:3306/mcool-com.cctv.springbootdemo.model.manager?allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+      jdbc-url: jdbc:mysql://localhost:3306/mcool-manager?allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
       username: root
       password: 112233
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -65,7 +65,7 @@ spring:
       #通过connectProperties属性来打开mergeSql功能；慢SQL记录
       connection-properties: "druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500"
     user:
-      jdbc-url: jdbc:mysql://localhost:3306/mcool-com.cctv.springbootdemo.model.user?allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+      jdbc-url: jdbc:mysql://localhost:3306/mcool-user?allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
       username: root
       password: 112233
       driver-class-name: com.mysql.cj.jdbc.Driver

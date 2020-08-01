@@ -8,9 +8,13 @@ package com.cctv.springbootdemo.model.po.manager;
  */
 public class Manager {
     /**
+     * 管理员编号
+     */
+    private Integer Id;
+    /**
      * 管理员账号
      */
-    private Integer managerId;
+    private String managerId;
     /**
      * 管理员名称
      */
@@ -52,7 +56,8 @@ public class Manager {
     public Manager() {
     }
 
-    public Manager(Integer managerId, String managerName, String managerPower, String managerPosition, String managerSexuality, String accountPassword, String emailAddress) {
+    public Manager(Integer id, String managerId, String managerName, String managerPower, String managerPosition, String managerSexuality, String accountPassword, String emailAddress) {
+        this.Id = id;
         this.managerId = managerId;
         this.managerName = managerName;
         this.managerPower = managerPower;
@@ -62,11 +67,19 @@ public class Manager {
         this.emailAddress = emailAddress;
     }
 
-    public Integer getManagerId() {
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        this.Id = id;
+    }
+
+    public String getManagerId() {
         return managerId;
     }
 
-    public void setManagerId(Integer managerId) {
+    public void setManagerId(String managerId) {
         this.managerId = managerId;
     }
 

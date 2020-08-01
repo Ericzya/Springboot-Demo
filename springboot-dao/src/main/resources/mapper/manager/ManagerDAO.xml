@@ -23,7 +23,7 @@
     </select>
 
     <insert id="insertManager"
-            parameterType="com.cctv.springbootdemo.model.po.manager.Manager">
+            parameterType="com.cctv.springbootdemo.model.po.manager.Manager" useGeneratedKeys="true" keyProperty="Id">
         INSERT INTO
         manager
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -68,7 +68,7 @@
     </select>
 
     <delete id="deleteManagerById">
-        DELETE FROM com.cctv.springbootdemo.model.manager
+        DELETE FROM manager
         WHERE id= #{id}
     </delete>
 

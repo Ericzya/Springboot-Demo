@@ -49,13 +49,13 @@ class SpringbootRedisDemoApplicationTests {
 
     @Test
     void testManagerCache() {
-        Manager manager = new Manager( null, "test", "", "", "M", "112233", "2@outlook.com");
+        Manager manager = new Manager( null,"12229", "test", "", "", "M", "112233", "2@outlook.com");
         managerService.insertManager(manager);
-        manager = managerService.getManagerById(manager.getManagerId());
+        manager = managerService.getManagerById(manager.getId());
         logger.info("获取manager:" + manager.toString());
-        logger.info("再次获取manager:" + managerService.getManagerById(manager.getManagerId ()));
-        managerService.deleteManagerById(manager.getManagerId());
-        logger.info("获取manager:" + managerService.getManagerById(manager.getManagerId()));
+        logger.info("再次获取manager:" + managerService.getManagerById(manager.getId ()));
+        managerService.deleteManagerById(manager.getId());
+        logger.info("获取manager:" + managerService.getManagerById(manager.getId()));
     }
 
     @Test
