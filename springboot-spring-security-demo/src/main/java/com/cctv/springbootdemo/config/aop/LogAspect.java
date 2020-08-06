@@ -23,7 +23,7 @@ import java.util.Arrays;
 public class LogAspect {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
-    @Pointcut("execution(public * com.cctv.springbootdemo.web.*.*(..))")
+    @Pointcut("execution(public * com.cctv.springbootdemo.web.*.*.*(..))")
     public void setControllerLog() {
     }
 

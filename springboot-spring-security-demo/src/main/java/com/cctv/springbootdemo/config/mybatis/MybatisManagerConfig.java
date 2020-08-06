@@ -33,7 +33,7 @@ public class MybatisManagerConfig {
     public SqlSessionFactory customSqlSessionFactory(@Qualifier("managerDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/com.cctv.springbootdemo.model.manager/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/manager/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 

@@ -32,7 +32,7 @@ public class MybatisUserConfig {
     public SqlSessionFactory customSqlSessionFactory(@Qualifier("userDataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/com.cctv.springbootdemo.model.user/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/user/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 
