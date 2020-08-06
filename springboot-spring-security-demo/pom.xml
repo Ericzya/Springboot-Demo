@@ -15,6 +15,12 @@
 
 
     <dependencies>
+        <!-- service依赖-->
+        <dependency>
+            <groupId>com.cctv</groupId>
+            <artifactId>springboot-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!-- spring boot+spring security依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
