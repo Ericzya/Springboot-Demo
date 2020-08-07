@@ -13,6 +13,14 @@ public class VisitorVO {
     public VisitorVO() {
     }
 
+    @Override
+    public String toString() {
+        return "VisitorVO{" +
+                "inputAccount='" + inputAccount + '\'' +
+                ", inputPassword='" + inputPassword + '\'' +
+                '}';
+    }
+
     public VisitorVO(String inputAccount, String inputPassword) {
         this.inputAccount = inputAccount;
         this.inputPassword = inputPassword;

@@ -10,7 +10,7 @@ public class Manager {
     /**
      * 管理员编号
      */
-    private Integer Id;
+    private Integer id;
     /**
      * 管理员账号
      */
@@ -57,7 +57,7 @@ public class Manager {
     }
 
     public Manager(Integer id, String managerId, String managerName, String managerPower, String managerPosition, String managerSexuality, String accountPassword, String emailAddress) {
-        this.Id = id;
+        this.id = id;
         this.managerId = managerId;
         this.managerName = managerName;
         this.managerPower = managerPower;
@@ -68,11 +68,11 @@ public class Manager {
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getManagerId() {

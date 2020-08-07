@@ -41,7 +41,7 @@ class SpringbootDemoMultipleDataSourceAopTests {
     void insertTest() {
         System.out.println("----------------insert test-----------------");
         Manager manager = new Manager();
-        manager.setManagerId(2);
+        manager.setManagerId("2");
         manager.setManagerName("ahaha");
         manager.setManagerSexuality("M");
         manager.setAccountPassword("111");

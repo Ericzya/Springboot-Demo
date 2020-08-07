@@ -12,7 +12,7 @@ public class ManagerBO {
     /**
      * 管理员编号
      */
-    private Integer Id;
+    private Integer id;
     /**
      * 管理员账号
      */
@@ -43,7 +43,7 @@ public class ManagerBO {
     private String emailAddress;
 
     public ManagerBO(Integer id, String managerId, String managerName, List<String> managerPower, String managerPosition, String managerSexuality, String accountPassword, String emailAddress) {
-        Id = id;
+        this.id = id;
         this.managerId = managerId;
         this.managerName = managerName;
         this.managerPower = managerPower;
@@ -56,7 +56,7 @@ public class ManagerBO {
     @Override
     public String toString() {
         return "ManagerBO{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", managerId='" + managerId + '\'' +
                 ", managerName='" + managerName + '\'' +
                 ", managerPower=" + managerPower +
@@ -68,11 +68,11 @@ public class ManagerBO {
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getManagerId() {
