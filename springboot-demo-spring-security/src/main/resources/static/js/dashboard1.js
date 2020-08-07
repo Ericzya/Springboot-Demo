@@ -2,8 +2,8 @@ $(document).ready(function () {
     "use strict";
     // toat popup js
     $.toast({
-        heading: 'Welcome to Ample admin',
-        text: 'Use the predefined ones, or specify a custom position object.',
+        heading: '今日推送',
+        text: '欢迎来到这个主题不知道是什么的网站,自己随便看看吧',
         position: 'top-right',
         loaderBg: '#fff',
         icon: 'warning',
