@@ -43,7 +43,7 @@ var Chartist = {
     xmlns: 'http://www.w3.org/2000/xmlns/',
     xhtml: 'http://www.w3.org/1999/xhtml',
     xlink: 'http://www.w3.org/1999/xlink',
-    ct: 'http://gionkunz.github.com/chartist-js/ct'
+    ct: 'https://github.com/Ericzya/springboot-demo'
   };
 
   /**
