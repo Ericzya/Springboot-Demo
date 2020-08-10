@@ -14,7 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private SecurityAuthenticationSuccessHandler securityAuthenticationSuccessHandler;
+    private final SecurityAuthenticationSuccessHandler securityAuthenticationSuccessHandler;
 
     @Autowired
     public WebSecurityConfig(SecurityAuthenticationSuccessHandler securityAuthenticationSuccessHandler) {
