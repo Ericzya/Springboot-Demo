@@ -21,7 +21,7 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String getLoginPage(@ModelAttribute("visitor") VisitorVO visitorVO) {
+    public String getLoginPage() {
         return "login/login";
     }
 
