@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>springboot-spring-security-demo</artifactId>
+    <artifactId>springboot-demo-spring-security</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot-spring-security-demo</name>
     <description>Spring security demo project for Spring Boot</description>
