@@ -32,10 +32,12 @@ public class VisitorServiceImpl implements VisitorService {
         Manager manager = managerDAO.getManagerByEmail(inputEmail);
         User user = userDAO.getUserByEmail(inputEmail);
         VisitorBO visitorBO = null;
+        //若为管理员，登陆管理员账号
+        if (user != null) {
+            visitorBO = VisitorUtil.convertUserToVisitor(user);
+        }
         if (manager != null) {
             visitorBO = VisitorUtil.convertManagerToVisitorBO(manager);
-        } else if (user != null) {
-            visitorBO = VisitorUtil.convertUserToVisitor(user);
         }
         return visitorBO;
     }

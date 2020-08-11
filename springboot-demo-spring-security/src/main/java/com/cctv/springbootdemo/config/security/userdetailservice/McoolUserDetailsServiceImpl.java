@@ -16,7 +16,7 @@ import org.springframework.util.StringUtils;
 @Service
 public class McoolUserDetailsServiceImpl implements UserDetailsService {
 
-    private VisitorService visitorService;
+    private final VisitorService visitorService;
 
     @Autowired
     public McoolUserDetailsServiceImpl(VisitorService visitorService) {
