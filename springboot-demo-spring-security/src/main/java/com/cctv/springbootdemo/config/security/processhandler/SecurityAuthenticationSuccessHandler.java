@@ -43,7 +43,7 @@ public class SecurityAuthenticationSuccessHandler extends SavedRequestAwareAuthe
                 .getAuthorities();
         //此处暂不做处理，待设置权限
         if (authCollection.isEmpty()) {
-            logger.debug("用户无权限！");
+            logger.info("用户无权限！");
 //            return;
         }
 
