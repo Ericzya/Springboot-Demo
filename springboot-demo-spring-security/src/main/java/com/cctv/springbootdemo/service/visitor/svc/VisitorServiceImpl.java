@@ -45,9 +45,6 @@ public class VisitorServiceImpl implements VisitorService {
     @Override
     public boolean loginCheck(String inputEmail, String inputPassword) {
         VisitorBO visitorBO = getVisitorBO(inputEmail);
-        if (visitorBO != null && visitorBO.getInputPassword().equals(inputPassword)) {
-            return true;
-        }
-        return false;
+        return visitorBO != null && visitorBO.getInputPassword().equals(inputPassword);
     }
 }
