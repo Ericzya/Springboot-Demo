@@ -8,8 +8,10 @@ import com.cctv.springbootdemo.service.visitor.bo.VisitorBO;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 /**
- * @Author: Eric
- * @Date: 2020/1/30 12:47
+ * @Author: Eric.Zhang
+ * @Description: Visitor工具类
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 public class VisitorUtil {
     public static VisitorBO convertVisitorVoToBo(VisitorVO visitorVO) {

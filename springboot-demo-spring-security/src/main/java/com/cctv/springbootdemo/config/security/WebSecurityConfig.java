@@ -8,8 +8,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * @Author: Eric
- * @Date: 2020/2/9 14:55
+ * @Author: Eric.Zhang
+ * @Description: web url权限配置
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

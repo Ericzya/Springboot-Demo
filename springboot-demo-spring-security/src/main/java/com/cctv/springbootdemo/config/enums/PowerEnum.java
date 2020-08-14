@@ -1,8 +1,10 @@
 package com.cctv.springbootdemo.config.enums;
 
 /**
- * @Author: Eric
- * @Date: 2020/2/9 16:51
+ * @Author: Eric.Zhang
+ * @Description: 用户角色枚举
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 public enum PowerEnum {
     /**

@@ -3,8 +3,10 @@ package com.cctv.springbootdemo.service.visitor.svc;
 import com.cctv.springbootdemo.service.visitor.bo.VisitorBO;
 
 /**
- * @Author: Eric
- * @Date: 2020/2/9 18:53
+ * @Author: Eric.Zhang
+ * @Description: VisitorService
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 public interface VisitorService {
     /**

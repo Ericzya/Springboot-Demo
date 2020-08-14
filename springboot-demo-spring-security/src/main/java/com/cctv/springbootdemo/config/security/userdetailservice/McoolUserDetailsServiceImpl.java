@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 /**
- * @Author: Eric
- * @Date: 2020/2/9 19:33
+ * @Author: Eric.Zhang
+ * @Description: 加载用户资料 UserDetailService
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 @Service
 public class McoolUserDetailsServiceImpl implements UserDetailsService {

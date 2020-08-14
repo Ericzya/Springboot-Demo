@@ -7,6 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+/**
+ * @Author: Eric.Zhang
+ * @Description: VisitorService测试类
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
+ */
 @SpringBootTest(classes = SpringbootSpringSecurityDemoApplication.class)
 @RunWith(SpringRunner.class)
 class SpringbootSpringSecurityDemoApplicationTests {

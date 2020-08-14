@@ -9,8 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * @Author: Eric
- * @Date: 2020/1/30 11:42
+ * @Author: Eric.Zhang
+ * @Description: 登陆Service测试类
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 @SpringBootTest(classes = SpringbootSpringSecurityDemoApplication.class)
 @RunWith(SpringRunner.class)

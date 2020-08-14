@@ -15,8 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 /**
- * @Author: Eric
- * @Date: 2020/2/23 13:16
+ * @Author: Eric.Zhang
+ * @Description: web service aspect打印日志
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 @Aspect
 @Component

@@ -4,8 +4,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author: Eric
- * @Date: 2020/2/23 15:20
+ * @Author: Eric.Zhang
+ * @Description: 密码加密编码器
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 @Component
 public class McoolPasswordEncoder implements PasswordEncoder {

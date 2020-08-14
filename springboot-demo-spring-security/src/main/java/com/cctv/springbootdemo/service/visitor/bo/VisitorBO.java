@@ -7,8 +7,10 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @Author: Eric
- * @Date: 2020/1/30 12:45
+ * @Author: Eric.Zhang
+ * @Description: VisitorBO
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 public class VisitorBO implements UserDetails {
     private String userId;

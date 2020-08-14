@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @Author: Eric
- * @Date: 2020/2/9 18:55
+ * @Author: Eric.Zhang
+ * @Description: VisitorServiceImpl
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 @Service
 public class VisitorServiceImpl implements VisitorService {

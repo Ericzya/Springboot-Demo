@@ -21,8 +21,10 @@ import java.io.IOException;
 import java.util.Collection;
 
 /**
- * @Author: Eric
- * @Date: 2020/2/23 19:40
+ * @Author: Eric.Zhang
+ * @Description: 登陆成功处理器
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 @Component
 public class SecurityAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {

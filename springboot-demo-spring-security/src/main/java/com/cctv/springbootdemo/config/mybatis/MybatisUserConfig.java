@@ -16,8 +16,10 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 /**
- * @Author: Eric
- * @Date: 2020/1/27 15:39
+ * @Author: Eric.Zhang
+ * @Description: user mybatis实体扫描配置
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 @Configuration
 @MapperScan(basePackages = "com.cctv.springbootdemo.dao.user", sqlSessionTemplateRef = "userSqlSessionTemplate")

@@ -1,11 +1,13 @@
-package com.cctv.springbootdemo.web.profile.controller;
+package com.cctv.springbootdemo.web.profile;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * @Author: Eric
- * @Date: 2020/2/9 15:47
+ * @Author: Eric.Zhang
+ * @Description: 个人资料页Controller
+ * @ProjectName: springboot-demo-spring-security
+ * @Date: 2020/7/30 17:25
  */
 @Controller
 public class ProfileController {
