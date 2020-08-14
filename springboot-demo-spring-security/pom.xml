@@ -10,7 +10,7 @@
     </parent>
     <artifactId>springboot-demo-spring-security</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-spring-security-demo</name>
+    <name>springboot-demo-spring-security</name>
     <description>Spring security demo project for Spring Boot</description>
 
 
