@@ -33,17 +33,17 @@
         <java.version>1.8</java.version>
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <fork>true</fork>
-                    <executable>E:\ProgramFiles\JDK\bin\javac</executable>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>3.1</version>-->
+<!--                <configuration>-->
+<!--                    <fork>true</fork>-->
+<!--&lt;!&ndash;                    <executable>E:\ProgramFiles\JDK\bin\javac</executable>&ndash;&gt;-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>
