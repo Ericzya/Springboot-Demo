@@ -115,6 +115,3 @@ spring:
           statement-log-enabled: true
           statement-executable-sql-log-enable: true
 
-#mybatis:
-#  mapper-locations: classpath:persistent/*/pl/
-
