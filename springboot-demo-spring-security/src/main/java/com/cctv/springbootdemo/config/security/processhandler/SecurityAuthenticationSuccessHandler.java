@@ -31,7 +31,6 @@ public class SecurityAuthenticationSuccessHandler extends SavedRequestAwareAuthe
     private final static Logger logger = LoggerFactory.getLogger(SecurityAuthenticationSuccessHandler.class);
 
     private final VisitorService visitorService;
-
     private final RequestCache requestCache = new HttpSessionRequestCache();
 
     public SecurityAuthenticationSuccessHandler(VisitorService visitorService) {

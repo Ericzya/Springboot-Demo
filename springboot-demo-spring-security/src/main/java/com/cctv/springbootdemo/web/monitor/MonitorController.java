@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class MonitorController {
+    /**
+     * 监控页获取
+     *
+     * @return 监控页文件相对路径
+     */
     @GetMapping("/monitor")
     public String getMonitorPage() {
         return "/monitor/basic-table";

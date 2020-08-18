@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class IndexController {
+    /**
+     * 主页登陆
+     * @return 主页文件相对路径
+     */
     @GetMapping("/index")
     public String getIndexPage() {
         return "index/index";

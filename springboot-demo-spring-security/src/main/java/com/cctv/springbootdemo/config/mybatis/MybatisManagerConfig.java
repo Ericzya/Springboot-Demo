@@ -12,11 +12,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+
 import javax.sql.DataSource;
 
 /**
  * @Author: Eric.Zhang
- * @Description: manager mybatis实体扫描配置
+ * @Description: manager包mybatis实体扫描配置
  * @ProjectName: springboot-demo-spring-security
  * @Date: 2020/7/30 17:25
  */
@@ -47,7 +48,7 @@ public class MybatisManagerConfig {
 
     @Bean(name = "managerSqlSessionTemplate")
     @Primary
-    public SqlSessionTemplate customSqlSessionTemplate(@Qualifier("managerSqlSessionFactory") SqlSessionFactory sqlSessionFactory){
+    public SqlSessionTemplate customSqlSessionTemplate(@Qualifier("managerSqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }

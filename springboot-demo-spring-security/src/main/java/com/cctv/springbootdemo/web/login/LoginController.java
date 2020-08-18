@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class LoginController {
+    /**
+     * 登录页获取
+     *
+     * @return 登录页文件相对路径
+     */
     @GetMapping("/login")
     public String getLoginPage() {
         return "login/login";

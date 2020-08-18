@@ -25,14 +25,21 @@ import java.util.Arrays;
 public class LogAspect {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
+    //处理web层log显示
     @Pointcut("execution(public * com.cctv.springbootdemo.web.*.*.*(..))")
     public void setControllerLog() {
     }
 
+    //处理service层log显示
     @Pointcut("execution(public * com.cctv.springbootdemo.service.*.svc.*.*(..))")
     public void setServiceLog() {
     }
 
+    /**
+     * 打印controller层log
+     *
+     * @param joinPoint aspect连接点
+     */
     @Before("setControllerLog()")
     public void printControllerLog(JoinPoint joinPoint) {
         logger.info("---------------------------Controller Log Begin---------------------------");
@@ -41,7 +48,7 @@ public class LogAspect {
             logger.error("RequestAttributes为空！");
         } else {
             HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
-            // 记录请求URL,Get/Post,IP,参数,方法等
+            //记录请求URL,Get/Post,IP,参数,方法等
             logger.info("URL : " + request.getRequestURL().toString());
             logger.info("HTTP_METHOD : " + request.getMethod());
             logger.info("IP : " + request.getRemoteAddr());
@@ -51,9 +58,14 @@ public class LogAspect {
         }
     }
 
+    /**
+     * 打印service层日志
+     *
+     * @param joinPoint aspect连接点
+     */
     @Before("setServiceLog()")
     public void printServiceLog(JoinPoint joinPoint) {
-        // 记录接口参数,方法等
+        //记录接口参数,方法等
         logger.info("---------------------------Service Log Begin---------------------------");
         logger.info("THE ARGS OF THE SERVICE : " + Arrays.toString(joinPoint.getArgs()));
         logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());

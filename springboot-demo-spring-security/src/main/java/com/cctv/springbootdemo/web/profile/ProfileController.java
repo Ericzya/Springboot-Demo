@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class ProfileController {
+    /**
+     * 个人资料页获取
+     *
+     * @return 个人资料页文件相对路径
+     */
     @GetMapping("/profile")
-    public String getProfilePage(){
+    public String getProfilePage() {
         return "/index/profile";
     }
 }

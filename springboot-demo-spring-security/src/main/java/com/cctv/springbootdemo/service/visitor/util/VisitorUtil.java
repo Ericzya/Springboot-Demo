@@ -1,8 +1,8 @@
 package com.cctv.springbootdemo.service.visitor.util;
 
+import com.cctv.springbootdemo.config.enums.PowerEnum;
 import com.cctv.springbootdemo.model.po.manager.Manager;
 import com.cctv.springbootdemo.model.po.user.User;
-import com.cctv.springbootdemo.config.enums.PowerEnum;
 import com.cctv.springbootdemo.model.vo.VisitorVO;
 import com.cctv.springbootdemo.service.visitor.bo.VisitorBO;
 import org.springframework.security.core.authority.AuthorityUtils;

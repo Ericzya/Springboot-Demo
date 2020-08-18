@@ -20,6 +20,7 @@ import org.springframework.util.StringUtils;
 @Service
 public class McoolUserDetailsServiceImpl implements UserDetailsService {
     private final static Logger logger = LoggerFactory.getLogger(McoolUserDetailsServiceImpl.class);
+
     private final VisitorService visitorService;
 
     @Autowired

@@ -25,13 +25,13 @@ public class VisitorBO implements UserDetails {
         this.inputPassword = inputPassword;
     }
 
-    public VisitorBO(String userId, String userName, String inputEmail, String inputPassword, String roles,List<GrantedAuthority> grantedAuthorityList) {
+    public VisitorBO(String userId, String userName, String inputEmail, String inputPassword, String roles, List<GrantedAuthority> grantedAuthorityList) {
         this.userId = userId;
         this.userName = userName;
         this.inputEmail = inputEmail;
         this.inputPassword = inputPassword;
         this.roles = roles;
-        this.grantedAuthorityList=grantedAuthorityList;
+        this.grantedAuthorityList = grantedAuthorityList;
     }
 
     @Override

@@ -4,10 +4,6 @@ server:
     context-path: /mcool
 
 spring:
-#  security:
-#    com.cctv.springbootdemo.model.user:
-#      name: eric
-#      password: 112233
   mvc:
     view:
       prefix: /

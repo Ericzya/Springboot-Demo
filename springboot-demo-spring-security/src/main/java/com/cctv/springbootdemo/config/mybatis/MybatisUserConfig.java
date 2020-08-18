@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 
 /**
  * @Author: Eric.Zhang
- * @Description: user mybatis实体扫描配置
+ * @Description: user包mybatis实体扫描配置
  * @ProjectName: springboot-demo-spring-security
  * @Date: 2020/7/30 17:25
  */
