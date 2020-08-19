@@ -36,7 +36,7 @@ public class VisitorServiceImpl implements VisitorService {
         VisitorBO visitorBO = null;
         //若为管理员，登陆管理员账号
         if (user != null) {
-            visitorBO = VisitorUtil.convertUserToVisitor(user);
+            visitorBO = VisitorUtil.convertUserToVisitorBO(user);
         }
         if (manager != null) {
             visitorBO = VisitorUtil.convertManagerToVisitorBO(manager);
@@ -47,6 +47,6 @@ public class VisitorServiceImpl implements VisitorService {
     @Override
     public boolean loginCheck(String inputEmail, String inputPassword) {
         VisitorBO visitorBO = getVisitorBO(inputEmail);
-        return visitorBO != null && visitorBO.getInputPassword().equals(inputPassword);
+        return visitorBO != null && visitorBO.getPassword().equals(inputPassword);
     }
 }

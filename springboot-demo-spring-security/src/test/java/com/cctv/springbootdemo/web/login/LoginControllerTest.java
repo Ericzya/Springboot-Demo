@@ -22,7 +22,7 @@ class LoginControllerTest {
 
     @Test
     void getLoginPage() {
-        visitorService.loginCheck("ericzya@outlook.com", "112233");
+        visitorService.loginCheck("ericzya@outlook.com", "$2a$10$P2kuPC.oCuNnhTjZDFYIteRDgvWzleqnfsxTs9WpXECJYmdrLpuNi");
     }
 
 }

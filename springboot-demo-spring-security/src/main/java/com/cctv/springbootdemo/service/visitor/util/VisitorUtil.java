@@ -22,7 +22,7 @@ public class VisitorUtil {
         return new VisitorBO(manager.getManagerId(), manager.getManagerName(), manager.getEmailAddress(), manager.getAccountPassword(), manager.getManagerPower(), AuthorityUtils.commaSeparatedStringToAuthorityList(manager.getManagerPower()));
     }
 
-    public static VisitorBO convertUserToVisitor(User user) {
+    public static VisitorBO convertUserToVisitorBO(User user) {
         return new VisitorBO(user.getUserId(), user.getUserName(), user.getUserEmail(), user.getAccountPassword(), PowerEnum.User.getCode(), AuthorityUtils.commaSeparatedStringToAuthorityList(PowerEnum.User.getCode()));
     }
 

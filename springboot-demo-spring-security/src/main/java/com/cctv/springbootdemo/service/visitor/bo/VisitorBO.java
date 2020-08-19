@@ -16,20 +16,20 @@ public class VisitorBO implements UserDetails {
     private String userId;
     private String userName;
     private List<GrantedAuthority> grantedAuthorityList;
-    private String inputEmail;
-    private String inputPassword;
+    private String email;
+    private String password;
     private String roles;
 
-    public VisitorBO(String inputEmail, String inputPassword) {
-        this.inputEmail = inputEmail;
-        this.inputPassword = inputPassword;
+    public VisitorBO(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
-    public VisitorBO(String userId, String userName, String inputEmail, String inputPassword, String roles, List<GrantedAuthority> grantedAuthorityList) {
+    public VisitorBO(String userId, String userName, String email, String password, String roles, List<GrantedAuthority> grantedAuthorityList) {
         this.userId = userId;
         this.userName = userName;
-        this.inputEmail = inputEmail;
-        this.inputPassword = inputPassword;
+        this.email = email;
+        this.password = password;
         this.roles = roles;
         this.grantedAuthorityList = grantedAuthorityList;
     }
@@ -41,12 +41,12 @@ public class VisitorBO implements UserDetails {
 
     @Override
     public String getPassword() {
-        return inputPassword;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return inputEmail;
+        return email;
     }
 
     @Override
@@ -75,25 +75,22 @@ public class VisitorBO implements UserDetails {
                 "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
                 ", grantedAuthorityList=" + grantedAuthorityList +
-                ", inputEmail='" + inputEmail + '\'' +
-                ", inputPassword='" + inputPassword + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roles='" + roles + '\'' +
                 '}';
     }
 
-    public String getInputEmail() {
-        return inputEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setInputEmail(String inputEmail) {
-        this.inputEmail = inputEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getInputPassword() {
-        return inputPassword;
-    }
-
-    public void setInputPassword(String inputPassword) {
-        this.inputPassword = inputPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUserId() {

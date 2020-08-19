@@ -42,14 +42,14 @@ class SpringbootRedisDemoApplicationTests {
     void managerDataSource() {
         System.out.println("测试");
         System.out.println("错误管理员：" + (managerService.loginCheck("ericzya@outlook.com", "1") ? "登陆成功" : "登陆失败"));
-        System.out.println("正确管理员：" + (managerService.loginCheck("ericzya@outlook.com", "112233") ? "登陆成功" : "登陆失败"));
+        System.out.println("正确管理员：" + (managerService.loginCheck("ericzya@outlook.com", "$2a$10$P2kuPC.oCuNnhTjZDFYIteRDgvWzleqnfsxTs9WpXECJYmdrLpuNi") ? "登陆成功" : "登陆失败"));
         System.out.println("错误用户：" + (userService.loginCheck("ericzya@outlook.com", "1") ? "登陆成功" : "登陆失败"));
         System.out.println("正确用户：" + (userService.loginCheck("ericzya@outlook.com", "445566") ? "登陆成功" : "登陆失败"));
     }
 
     @Test
     void testManagerCache() {
-        Manager manager = new Manager( null,"12229", "test", "", "", "M", "112233", "2@outlook.com");
+        Manager manager = new Manager( null,"12229", "test", "", "", "M", "$2a$10$P2kuPC.oCuNnhTjZDFYIteRDgvWzleqnfsxTs9WpXECJYmdrLpuNi", "2@outlook.com");
         managerService.insertManager(manager);
         manager = managerService.getManagerById(manager.getId());
         logger.info("获取manager:" + manager.toString());

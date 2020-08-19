@@ -1,5 +1,6 @@
 package com.cctv.springbootdemo.config.security.userdetailservice;
 
+import com.cctv.springbootdemo.config.security.passwordencoder.McoolPasswordEncoder;
 import com.cctv.springbootdemo.service.visitor.bo.VisitorBO;
 import com.cctv.springbootdemo.service.visitor.svc.VisitorService;
 import org.slf4j.Logger;
@@ -39,6 +40,7 @@ public class McoolUserDetailsServiceImpl implements UserDetailsService {
             logger.error("用户名不存在！");
             throw new UsernameNotFoundException("用户名不存在！");
         }
+        visitorBO.setPassword(visitorBO.getPassword());
         return visitorBO;
     }
 }

@@ -1,11 +1,15 @@
 package com.cctv.springbootdemo.config.security;
 
 import com.cctv.springbootdemo.config.enums.PowerEnum;
+import com.cctv.springbootdemo.config.security.passwordencoder.McoolPasswordEncoder;
 import com.cctv.springbootdemo.config.security.processhandler.SecurityAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * @Author: Eric.Zhang
@@ -17,14 +21,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final SecurityAuthenticationSuccessHandler securityAuthenticationSuccessHandler;
+    private final UserDetailsService mcoolUserDetailsService;
+    private final McoolPasswordEncoder mcoolPasswordEncoder;
 
     @Autowired
-    public WebSecurityConfig(SecurityAuthenticationSuccessHandler securityAuthenticationSuccessHandler) {
+    public WebSecurityConfig(SecurityAuthenticationSuccessHandler securityAuthenticationSuccessHandler, @Qualifier("mcoolUserDetailsServiceImpl") UserDetailsService mcoolUserDetailsService, McoolPasswordEncoder mcoolPasswordEncoder) {
         this.securityAuthenticationSuccessHandler = securityAuthenticationSuccessHandler;
+        this.mcoolUserDetailsService = mcoolUserDetailsService;
+        this.mcoolPasswordEncoder = mcoolPasswordEncoder;
     }
 
     /**
-     * 安全拦截机制
+     * 配置拦截器
+     *
+     * @param httpSecurity HttpSecurity对象
+     * @throws Exception 抛错
      */
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
@@ -51,4 +62,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //退出时清空cookies
         httpSecurity.logout().deleteCookies("JESSIONID");
     }
+
+    /**
+     * 配置UserDetailsService和密码加密器
+     *
+     * @param auth 认证管理构造器
+     * @throws Exception 抛错
+     */
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(mcoolUserDetailsService).passwordEncoder(mcoolPasswordEncoder);
+    }
+
 }

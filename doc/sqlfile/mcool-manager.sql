@@ -36,6 +36,6 @@ CREATE TABLE `com.cctv.springbootdemo.model.manager` (
 -- ----------------------------
 -- Records of com.cctv.springbootdemo.model.manager
 -- ----------------------------
-INSERT INTO `com.cctv.springbootdemo.model.manager` VALUES (null,'001', 'Eric', NULL, NULL, 'M', '112233', 'ericzya@outlook.com');
+INSERT INTO `com.cctv.springbootdemo.model.manager` VALUES (null,'001', 'Eric', NULL, NULL, 'M', '$2a$10$P2kuPC.oCuNnhTjZDFYIteRDgvWzleqnfsxTs9WpXECJYmdrLpuNi', 'ericzya@outlook.com');
 
 SET FOREIGN_KEY_CHECKS = 1;
