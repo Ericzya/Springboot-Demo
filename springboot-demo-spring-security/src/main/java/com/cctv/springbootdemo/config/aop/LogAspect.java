@@ -25,12 +25,16 @@ import java.util.Arrays;
 public class LogAspect {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
-    //处理web层log显示
+    /**
+     * 处理web层log显示
+     */
     @Pointcut("execution(public * com.cctv.springbootdemo.web.*.*.*(..))")
     public void setControllerLog() {
     }
 
-    //处理service层log显示
+    /**
+     * 处理service层log显示
+     */
     @Pointcut("execution(public * com.cctv.springbootdemo.service.*.svc.*.*(..))")
     public void setServiceLog() {
     }
