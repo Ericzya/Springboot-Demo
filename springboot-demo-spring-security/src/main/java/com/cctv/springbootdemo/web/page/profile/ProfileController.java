@@ -1,4 +1,4 @@
-package com.cctv.springbootdemo.web.profile;
+package com.cctv.springbootdemo.web.page.profile;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

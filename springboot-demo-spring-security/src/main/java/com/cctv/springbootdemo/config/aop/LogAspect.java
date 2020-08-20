@@ -28,7 +28,7 @@ public class LogAspect {
     /**
      * 处理web层log显示
      */
-    @Pointcut("execution(public * com.cctv.springbootdemo.web.*.*.*(..))")
+    @Pointcut("execution(public * com.cctv.springbootdemo.web.*.*.*.*(..))")
     public void setControllerLog() {
     }
 

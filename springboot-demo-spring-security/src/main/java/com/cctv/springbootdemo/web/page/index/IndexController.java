@@ -1,4 +1,4 @@
-package com.cctv.springbootdemo.web.index;
+package com.cctv.springbootdemo.web.page.index;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
