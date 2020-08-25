@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class AClassFullWithProblems {
 
     //变量名应反馈变量作用
-    final static String aaa = "这还是注释不标准范例";
+    final static String aaa = "这是注释不标准范例";
 
     /**
      * 变量名避免误导,变量值避免误导
