@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /**
  * @Author: Eric.Zhang
- * @Description: 充满示例级错误的的类
+ * @Description: 充满示例错误的的类
  * @ProjectName: springboot-demo-spring-security
  * @Date: 2020/8/25 17:25
  */
