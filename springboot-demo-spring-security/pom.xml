@@ -46,6 +46,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.72</version>
+        </dependency>
         <!-- 解决thymeleaf解析问题 -->
         <dependency>
             <groupId>net.sourceforge.nekohtml</groupId>
