@@ -22,15 +22,15 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `manager`;
 CREATE TABLE `manager` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `ManagerID` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `ManagerName` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `ManagerPower` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `ManagerPosition` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `ManagerSexuality` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `AccountPassword` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `EmailAddress` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`ID`) USING BTREE
+  `id` int NOT NULL AUTO_INCREMENT,
+  `manager_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `manager_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `manager_power` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `manager_position` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `manager_sexuality` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `account_password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `email_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------

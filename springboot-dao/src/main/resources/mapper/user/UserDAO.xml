@@ -2,23 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cctv.springbootdemo.dao.user.UserDAO" >
     <resultMap id="UserResultMap" type="com.cctv.springbootdemo.model.po.user.User" >
-        <id column="UserAccount" property="userId" jdbcType="VARCHAR" />
-        <result column="UserName" property="userName" jdbcType="VARCHAR" />
-        <result column="UserSexuality" property="userSexuality" jdbcType="VARCHAR" />
-        <result column="AccountPassword" property="accountPassword" jdbcType="VARCHAR" />
-        <result column="UserEmail" property="userEmail" jdbcType="VARCHAR" />
-        <result column="UserBirthday" property="userBirthday" jdbcType="DATE" />
+        <id column="user_account" property="userId" jdbcType="VARCHAR" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="user_sexuality" property="userSexuality" jdbcType="VARCHAR" />
+        <result column="account_password" property="accountPassword" jdbcType="VARCHAR" />
+        <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+        <result column="user_birthday" property="userBirthday" jdbcType="DATE" />
     </resultMap>
 
     <sql id="Base_Column_List" >
-        UserAccount,UserName,UserSexuality,AccountPassword,UserEmail,UserBirthday
+        user_account,user_name,user_sexuality,account_password,user_email,user_birthday
     </sql>
 
     <select id="getUserByEmail" parameterType="string" resultMap="UserResultMap">
         SELECT
         <include refid="Base_Column_List" />
         FROM user
-        WHERE UserEmail= #{emailAddress}
+        WHERE user_email= #{emailAddress}
     </select>
 
 </mapper>

@@ -22,13 +22,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `com.cctv.springbootdemo.model.user`;
 CREATE TABLE `user`  (
-  `UserAccount` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `UserName` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `UserSexuality` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `AccountPassword` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `UserEmail` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `UserBirthday` date NULL DEFAULT NULL,
-  PRIMARY KEY (`UserAccount`) USING BTREE
+    `user_account` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `user_sexuality` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `account_password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `user_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `user_birthday` date DEFAULT NULL,
+  PRIMARY KEY (`user_account`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
