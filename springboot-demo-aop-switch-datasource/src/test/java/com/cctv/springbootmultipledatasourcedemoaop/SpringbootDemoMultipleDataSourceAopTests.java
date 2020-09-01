@@ -3,7 +3,6 @@ package com.cctv.springbootmultipledatasourcedemoaop;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.cctv.springbootdemo.SpringbootDemoMultipleDataSourceAop;
-import com.cctv.springbootdemo.dao.manager.ManagerDAO;
 import com.cctv.springbootdemo.model.po.manager.Manager;
 import com.cctv.springbootdemo.service.manager.ManagerService;
 import com.cctv.springbootdemo.service.user.UserService;
@@ -25,9 +24,6 @@ class SpringbootDemoMultipleDataSourceAopTests {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private ManagerDAO managerDAO;
-
     @Test
     void managerDataSource() {
         System.out.println("测试");
@@ -46,23 +42,23 @@ class SpringbootDemoMultipleDataSourceAopTests {
         manager.setManagerSexuality("M");
         manager.setAccountPassword("111");
         manager.setEmailAddress("xxx@outlook.com");
-        managerDAO.insertManager(manager);
+        managerService.insertManager(manager);
         System.out.println("插入" + JSON.toJSONString(manager) + "成功！");
         System.out.println("----------------update test-----------------");
-        manager = managerDAO.getManagerByEmail("xxx@outlook.com");
+        manager = managerService.getManagerByEmail("xxx@outlook.com");
         manager.setManagerName("---------------------");
-        managerDAO.updateManager(manager);
-        manager = managerDAO.getManagerByEmail("xxx@outlook.com");
+        managerService.updateManager(manager);
+        manager = managerService.getManagerByEmail("xxx@outlook.com");
         System.out.println("更改" + JSON.toJSONString(manager) + "信息成功！");
         System.out.println("----------------delete test-----------------");
-        managerDAO.deleteManagerByEmail("xxx@outlook.com");
+        managerService.deleteManagerByEmail("xxx@outlook.com");
         System.out.println("删除成功！");
     }
 
     @Test
     void jsonTest() {
         try {
-            Manager manager = managerDAO.getManagerByEmail("ericzya@outlook.com");
+            Manager manager = managerService.getManagerByEmail("ericzya@outlook.com");
             String s = JSON.toJSONString(manager);
             System.out.println(s);
             JSONObject jsonObject = JSONObject.parseObject(s);

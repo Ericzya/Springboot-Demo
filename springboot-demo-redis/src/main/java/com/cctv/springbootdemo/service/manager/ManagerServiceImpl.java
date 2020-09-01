@@ -69,7 +69,12 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    @CachePut(value = "manager", key = "#manager.Id")
+    public boolean updateManager(Manager targetManager) {
+        return managerDAO.updateManager(targetManager);
+    }
+
+    @Override
+    @CachePut(value = "manager", key = "#manager.id")
     public Manager insertManager(Manager manager) {
         logger.info("进入insertManager方法！");
         managerDAO.insertManager(manager);

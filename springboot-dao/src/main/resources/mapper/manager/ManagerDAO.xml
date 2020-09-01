@@ -28,14 +28,14 @@
         INSERT INTO
         manager
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            managerId,managerName,
+            manager_id,manager_name,
             <if test="managerPower!=null">
-                managerPower,
+                manager_power,
             </if>
             <if test="managerPosition!=null">
-                managerPosition,
+                manager_position,
             </if>
-            managerSexuality,accountPassword,emailAddress,
+            manager_sexuality,account_password,email_address,
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             #{managerId,jdbcType=VARCHAR},
@@ -54,17 +54,17 @@
 
     <update id="updateManager"
             parameterType="com.cctv.springbootdemo.model.po.manager.Manager">
-        UPDATE Manager SET managerName=#{managerName},managerPower=#{managerPower},managerPosition=#{managerPosition},managerSexuality=#{managerSexuality},accountPassword=#{accountPassword},emailAddress=#{emailAddress} WHERE managerId=#{managerId}
+        UPDATE manager SET manager_name=#{managerName},manager_power=#{managerPower},manager_position=#{managerPosition},manager_sexuality=#{managerSexuality},account_password=#{accountPassword},email_address=#{emailAddress} WHERE manager_id=#{managerId}
     </update>
 
     <delete id="deleteManagerByEmail" parameterType="String">
-        DELETE FROM Manager WHERE email_address=#{emailAddress}
+        DELETE FROM manager WHERE email_address=#{emailAddress}
     </delete>
 
     <select id="getManagerById" parameterType="Integer" resultMap="ManagerResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM Manager
+        FROM manager
         WHERE id= #{id}
     </select>
 

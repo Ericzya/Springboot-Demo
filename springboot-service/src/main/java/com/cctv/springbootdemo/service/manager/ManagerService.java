@@ -35,6 +35,22 @@ public interface ManagerService {
     Manager insertManager(Manager manager);
 
     /**
+     * 删除管理员
+     *
+     * @param managerEmail 管理员邮箱
+     * @return 是否成功
+     */
+    boolean deleteManagerByEmail(String managerEmail);
+
+    /**
+     * 更新管理员信息
+     *
+     * @param targetManager 对应管理员
+     * @return 是否成功
+     */
+    boolean updateManager(Manager targetManager);
+
+    /**
      * 根据id获取管理员
      *
      * @param id 管理员id

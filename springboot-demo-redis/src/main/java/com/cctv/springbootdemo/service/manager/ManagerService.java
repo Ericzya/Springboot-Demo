@@ -40,6 +40,14 @@ public interface ManagerService {
     void deleteManagerByEmail(String email);
 
     /**
+     * 更新管理员信息
+     *
+     * @param targetManager 对应管理员
+     * @return 是否成功
+     */
+    boolean updateManager(Manager targetManager);
+
+    /**
      * 根据id获取管理员
      *
      * @param id 管理员id

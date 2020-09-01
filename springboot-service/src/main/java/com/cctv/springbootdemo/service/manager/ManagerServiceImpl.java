@@ -42,6 +42,16 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
+    public boolean deleteManagerByEmail(String managerEmail) {
+        return managerDAO.deleteManagerByEmail(managerEmail);
+    }
+
+    @Override
+    public boolean updateManager(Manager targetManager) {
+        return managerDAO.updateManager(targetManager);
+    }
+
+    @Override
     @Cacheable(value = "manager", key = "#id", unless = "#result == null")
     public Manager getManagerById(Integer id) {
         return managerDAO.getManagerById(id);
