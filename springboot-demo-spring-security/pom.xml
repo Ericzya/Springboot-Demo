@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.cctv</groupId>
-        <artifactId>springboot-multiple-data-source-demo-different-package</artifactId>
+        <artifactId>springboot-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.72</version>
+            <version>1.2.54</version>
         </dependency>
         <!-- 解决thymeleaf解析问题 -->
         <dependency>
